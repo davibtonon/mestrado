@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  anaconda:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: jupyter-mestrado
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./data:/workspace/data
+      - ./notebooks:/workspace/notebooks
+      - ./src:/workspace/src
+    command: >
+      jupyter notebook
+      --notebook-dir=/workspace/notebooks
+      --ip=0.0.0.0
+      --port=8888
+      --no-browser
+      --allow-root
+      --NotebookApp.allow_origin='*'
+      --NotebookApp.allow_remote_acess=True
