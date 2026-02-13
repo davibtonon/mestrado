@@ -28,6 +28,7 @@ Rules:
 - ALWAYS use queries (pandas.query syntax).
 - NEVER request the entire dataset.
 - Use this path:
+  data/raw/rba-dataset.csv
   data/raw/it_incident_log_dataset/incident_event_log.csv
 
 Examples of valid queries:

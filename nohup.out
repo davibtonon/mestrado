@@ -2992,3 +2992,17 @@ Abrindo em uma sessão de navegador existente.
 [I 2025-11-27 21:54:51.878 ServerApp] Saving file at /agente.ipynb
 [I 2025-11-27 21:56:53.879 ServerApp] Saving file at /agente.ipynb
 [I 2025-11-27 22:04:55.901 ServerApp] Saving file at /agente.ipynb
+[I 2025-11-27 22:14:58.909 ServerApp] Starting buffering for 939ed9de-c74b-4334-832d-622bb4fe8c0c:5e7ace4f-bfe3-4a70-93ba-b5742a62de4e
+[I 2025-11-27 22:14:58.910 ServerApp] Starting buffering for 138e5395-441b-41a5-824c-da34f01a452e:6cdc2f95-9571-4614-9f64-2527d87ed995
+[C 2025-11-27 22:15:25.790 ServerApp] received signal 15, stopping
+[C 2025-11-27 22:15:26.053 ServerApp] received signal 15, stopping
+[I 2025-11-27 22:15:26.055 ServerApp] Shutting down 4 extensions
+[I 2025-11-27 22:15:26.055 ServerApp] Shutting down 4 extensions
+[I 2025-11-27 22:15:26.056 ServerApp] Shutting down 3 kernels
+[I 2025-11-27 22:15:26.056 ServerApp] Shutting down 3 kernels
+[I 2025-11-27 22:15:26.057 ServerApp] Kernel shutdown: 138e5395-441b-41a5-824c-da34f01a452e
+[I 2025-11-27 22:15:26.058 ServerApp] Kernel shutdown: 8496a40e-2187-4fb5-9c5c-63154a2ca853
+[I 2025-11-27 22:15:26.058 ServerApp] Kernel shutdown: 939ed9de-c74b-4334-832d-622bb4fe8c0c
+[I 2025-11-27 22:15:26.059 ServerApp] Kernel shutdown: 138e5395-441b-41a5-824c-da34f01a452e
+[I 2025-11-27 22:15:26.059 ServerApp] Kernel shutdown: 8496a40e-2187-4fb5-9c5c-63154a2ca853
+[I 2025-11-27 22:15:26.059 ServerApp] Kernel shutdown: 939ed9de-c74b-4334-832d-622bb4fe8c0c
