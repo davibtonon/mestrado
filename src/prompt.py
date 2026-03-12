@@ -7,8 +7,7 @@ Rules:
 - To inspect logs, ALWAYS call the tool `load_csv`.
 - ALWAYS use queries (pandas.query syntax).
 - NEVER request the entire dataset.
-- Use this path:
-  data\AWS_S3_HoneyBucketLogs.csv
+- File path to use: {path_file}
 
 Follow this structure:
 

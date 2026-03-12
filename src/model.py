@@ -9,15 +9,15 @@ from langchain_ollama import ChatOllama
 from langchain_core.messages import HumanMessage, SystemMessage
 
 from langchain_google_genai import ChatGoogleGenerativeAI
-
+from llm_factory import LLMFactory
 from prompt import FIRST_TEMPLATE
 
 load_dotenv()
 
 ## Prompt usando para inicia o agent
-
-prompt = PromptTemplate.from_template(FIRST_TEMPLATE)
-prompt_format = prompt.invoke({"log": "AWS_S3_HoneyBucketLogs.csv"}).text
+def built_prompt(path_file):
+    prompt = PromptTemplate.from_template(FIRST_TEMPLATE)
+    return prompt.invoke({"path_file": path_file}).text
 
 name = "mistral-nemo"
 
@@ -34,11 +34,11 @@ def google_model():
     return ChatGoogleGenerativeAI(model="gemini-2.5-flash-lite")
 
 
-def agent(model_func=ollama_model):
-    
+def agent(path_file:str, provider='ollama'):
+    system_prompt= built_prompt(path_file)
     return create_agent(
-        model=model_func(),              # seu modelo ollama
-        system_prompt=prompt_format,
+        model= LLMFactory().get_model(provider),              # seu modelo ollama
+        system_prompt=system_prompt,
         tools=[load_csv],
         #stream=False
     )
