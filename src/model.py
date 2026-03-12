@@ -3,50 +3,21 @@ from dotenv import load_dotenv
 from tools import load_csv
 
 from langchain.agents import create_agent
-from langchain.agents import create_agent
+from langchain_core.prompts import PromptTemplate 
 from langchain_core.messages import HumanMessage
 from langchain_ollama import ChatOllama
 from langchain_core.messages import HumanMessage, SystemMessage
 
 from langchain_google_genai import ChatGoogleGenerativeAI
 
+from prompt import FIRST_TEMPLATE
 
 load_dotenv()
 
 ## Prompt usando para inicia o agent
-SYSTEM_PROMPT = """
-You are an advanced Cybersecurity Log Analysis Agent.
 
-Your objectives:
-- Detect suspicious behavior
-- Identify unauthorized access
-- Analyze failed logins, repeated attempts, anomalies
-- Map findings to MITRE ATT&CK tactics and techniques
-
-Rules:
-- To inspect logs, ALWAYS call the tool `load_csv`.
-- ALWAYS use queries (pandas.query syntax).
-- NEVER request the entire dataset.
-- Use this path:
-  data/raw/rba-dataset.csv
-  data/raw/it_incident_log_dataset/incident_event_log.csv
-
-Examples of valid queries:
-  user == "root"
-  event == "FAILED_LOGIN"
-  ip == "10.0.0.5"
-  severity >= 4
-  status == "ERROR"
-
-Process:
-1. Interpret the user's request.
-2. Generate the correct query.
-3. Call the tool with that query.
-4. Analyze the returned filtered data.
-5. Map suspicious patterns to MITRE ATT&CK.
-
-If the tool returns an error, show it exactly.
-"""
+prompt = PromptTemplate.from_template(FIRST_TEMPLATE)
+prompt_format = prompt.invoke({"log": "AWS_S3_HoneyBucketLogs.csv"}).text
 
 name = "mistral-nemo"
 
@@ -65,14 +36,14 @@ def google_model():
 
 def agent(model_func=ollama_model):
     
-    agent = create_agent(
+    return create_agent(
         model=model_func(),              # seu modelo ollama
-        system_prompt=SYSTEM_PROMPT,
+        system_prompt=prompt_format,
         tools=[load_csv],
         #stream=False
     )
 
-    return agent# MUITO IMPORTANTE: não travar Jupyter
+    #return agent# MUITO IMPORTANTE: não travar Jupyter
 
 
 def prompt_test():
@@ -90,5 +61,5 @@ def send_prompt(agent, messages):
     "Função para envia o prompt e mostra resposta"
 
 
-    result = agent.invoke({"messages":messages })
+    result = agent.invoke({"messages":"" })
     print(result["messages"][-1].content)

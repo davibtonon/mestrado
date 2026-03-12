@@ -1,13 +1,13 @@
 from langchain.tools import tool 
 from langchain_community.document_loaders import CSVLoader
 import pandas as pd
-
+import os
 LOG_CACHE = None
 
 @tool
 def load_csv(path: str, query=None, max_rows:int=10):
     """Lê o CSV arquivo e permite consultas seguras para o agente"""
-    
+    normalized_path = os.path.normpath(path)
     global LOG_CACHE
 
     try:
