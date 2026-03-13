@@ -26,20 +26,9 @@ class Settings(BaseSettings):
 settings = Settings()
 
 # Configurações de diretórios
-BASE_DIR = Path(__file__).parent        # src/
-PROJECT_DIR = BASE_DIR.parent           # project root
+PROJECT_DIR  = Path(__file__).resolve().parents[1]
+BASE_DIR  = PROJECT_DIR / "src"           # project root
 DATA_DIR = PROJECT_DIR / "data" / "raw"
 
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-VLLM_ENDPOINT = os.getenv("VLLM_ENDPOINT", "http://localhost:8000/v1")
 
-DEBUG = os.getenv("DEBUG", "False").lower() == "true"
-RUN_LOCAL = True
 
-try:
-    CUSTOM_CLIENT = OpenAI(
-        base_url=VLLM_ENDPOINT,
-        api_key=OPENAI_API_KEY)
-except Exception as e:
-    print(f"Error initializing OpenAI client: {e}")
-    CUSTOM_CLIENT = None
