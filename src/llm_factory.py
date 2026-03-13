@@ -41,6 +41,7 @@ class LLMFactory:
        return ChatGoogleGenerativeAI(model="gemini-2.5-flash-lite")
 
     def get_model(self, provider_name: str):
+        print(f"LLMFactory: Getting model for provider '{provider_name}'")
         creator = self._creator.get(provider_name.lower())
         if not creator:
             raise ValueError(f"Provider '{provider_name}' is not supported.")

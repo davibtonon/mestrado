@@ -6,6 +6,8 @@ __pycache__/
 
 /data/*
 notebooks/.Trash-0/
+/notebooks/atomic/*
+/notebooks/compound/*
 
 # C extensions
 *.so

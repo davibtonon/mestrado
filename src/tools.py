@@ -16,7 +16,8 @@ def set_csv_path(path):
 def load_csv(query=None, max_rows:int=10):
     """Lê o CSV arquivo e permite consultas seguras para o agente"""
     global LOG_CACHE, CSV_PATH
-
+    print("Path recebido:", CSV_PATH)
+    print("Arquivo existe:", os.path.exists(CSV_PATH))
     try:
         if LOG_CACHE is None:
             LOG_CACHE = pd.read_csv(CSV_PATH)
