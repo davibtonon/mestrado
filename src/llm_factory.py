@@ -11,6 +11,8 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from config import settings
 
 class LLMFactory:
+    """Factory class to create Language Models based on provider name."""
+    
     def __init__(self):
         self._creator: Dict[str, callable[[], BaseLanguageModel]] = {
             'openai': self._build_openai,
@@ -31,17 +33,17 @@ class LLMFactory:
             max_tokens=None,
 
         )
-    def _build_ollama(self, model: str = 'phi4-mini') -> BaseLanguageModel:
+    def _build_ollama(self) -> BaseLanguageModel:
         return ChatOllama(
             model = settings.OLLAMA_MODEL,
             base_url = settings.OLLAMA_URL,
            # reasoning = True
         )
     
-    def _build_gemini(self, model: str = 'gemini-2.5-flash-lite') -> BaseLanguageModel:
-       return ChatGoogleGenerativeAI(model="gemini-2.5-flash-lite")
+    def _build_gemini(self) -> BaseLanguageModel:
+       return ChatGoogleGenerativeAI(model=settings.GOOGLE_MODEL)
 
-    def get_model(self, provider_name: str):
+    def get_model(self, provider_name: str = settings.LLM_PROVIDER):
         print(f"LLMFactory: Getting model for provider '{provider_name}'")
         creator = self._creator.get(provider_name.lower())
         if not creator:

@@ -23,10 +23,15 @@ from tools import set_csv_path
 #     }
 #     )
 
-def run_analysis(path_file:str):
+def run_analysis(path_file:str, provider: str | None = None):
+
     set_csv_path(path_file)
 
-    return agent(path_file=path_file, provider='ollama').invoke({
+    if provider:
+        from config import settings
+        settings.LLM_PROVIDER = provider
+
+    return agent(path_file=path_file).invoke({
         "messages": [
             HumanMessage(content=f"""
                          Analyse the file {path_file} and:

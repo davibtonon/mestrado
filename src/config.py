@@ -12,15 +12,23 @@ load_dotenv()
 
 
 class Settings(BaseSettings):
+    """Class to hold all configuration settings for the application."""
+
     LLM_PROVIDER: Literal['openai', 'ollama', 'gemini'] = Field(default='ollama')
 
     # 2. Chaves de API (o Pydantic valida se é string)
     OPENAI_API_KEY: str = Field(default="sk-placeholder")
-    GOOGLE_API_KEY: str = Field(default="ai-placeholder")
-    GROG_API_KEY: str = Field(default="gsk-placeholder")
     
+    # Config for Google Gemini.
+    GOOGLE_API_KEY: str = Field(default="ai-placeholder")
+    GOOGLE_MODEL: str = Field(default="gemini-2.5-flash-lite")
+    
+    GROG_API_KEY: str = Field(default="gsk-placeholder")
+
+    # Config for Ollama
     OLLAMA_URL: str = Field(default="http://localhost:11434")
     OLLAMA_MODEL: str = Field(default="phi4-mini")
+    
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
 
 settings = Settings()

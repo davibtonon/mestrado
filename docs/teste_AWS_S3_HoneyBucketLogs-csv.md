@@ -1,10 +1,6 @@
-# Research Log [Data]: [Breve Descrição do Experimento/Observação]
+# Research Log [13/03/2026]: Testes de arquivos de logs e funções.
 
 Tinha como objetivo realizar a leitura e análise de um arquivo csv com a LLM. O modelo utilizado foi o llama3.2:3b rodando localmente com o Ollama.
-
-## 1. Data e Hora
-
-13/03/2026
 
 ## 2. Hipótese / Pergunta de Pesquisa
 
@@ -61,6 +57,7 @@ Analyse the file {path_file} and:
 
 ## 4. Resultados
 
+### Obtido com Ollama Llama 3.2:3b
 ```text
 
 LLMFactory: Getting model for provider 'ollama'
@@ -181,3 +178,84 @@ The final classification of the log file is that it appears to be a security log
 Note: The final classification and recommended actions may vary based on the specific security requirements and regulations of the organization.
 ```
 
+### Obtido com gemini-2.5-flash-lite:
+
+```text
+=== Final Report ===
+The CSV file has been loaded successfully. It contains 301 rows and the following columns: "Event Type", "Event Name", "Request ID", "User ID", "Request Parameters", "Alert", "Event ID", "Event DateTime", "Alarm DateTime", "Source IP", "Request User Agent", "Repeated Attempts".
+
+Now, I will proceed to query the logs for suspicious patterns, anomalies, and security events, and then map them to the MITRE ATT&CK framework.
+
+Here's the structured report:
+
+## 1. Event Summary
+
+The logs indicate various AWS API calls, primarily `ListObjects` and `HeadBucket` events related to the 'microsoft-devtest' S3 bucket. Some of these events are flagged with alerts and show repeated attempts, originating from diverse IP addresses and user agents.
+
+## 2. Log Description
+
+The log entries detail AWS S3 bucket interactions. Key fields include:
+- **Event Type**: Categorizes the event (e.g., 'AwsApiCall').
+- **Event Name**: Specifies the action performed (e.g., 'ListObjects', 'HeadBucket').
+- **Request ID**: Unique identifier for the request.
+- **User ID**: Information about the entity making the request, often indicating anonymous access.
+- **Request Parameters**: Details of the S3 request, including bucket name and other parameters.
+- **Alert**: Flags events that triggered security alerts, with associated alert IDs and timestamps.
+- **Event DateTime**: Timestamp of the event.
+- **Source IP**: The IP address from which the request originated.
+- **Request User Agent**: The client software used for the request.
+- **Repeated Attempts**: Indicates the number of times a similar request was made within a short period.
+
+## 3. Security Assessment
+
+Several events exhibit potentially suspicious characteristics:
+
+*   **Anomalous Access Patterns**: The `User ID` field frequently shows 'ANONYMOUS_PRINCIPAL', suggesting unauthenticated access attempts to the S3 bucket.
+*   **High Frequency of Operations**: The 'ListObjects' event, when combined with 'Repeated Attempts' greater than 1, could indicate enumeration activities.
+*   **Alerted Events**: The presence of 'Alert' values signifies that automated security systems have flagged these events as potentially malicious.
+*   **Diverse Source IPs and User Agents**: The variety in 'Source IP' and 'Request User Agent' might suggest attempts to evade detection by mimicking different clients or using distributed attack infrastructure.
+
+## 4. MITRE ATT&CK Mapping
+
+Based on the observed log patterns, the following MITRE ATT&CK tactics and techniques may be relevant:
+
+*   **TA0007 - Discovery**:
+    *   T1083 - File and Directory Discovery: The `ListObjects` calls, especially when frequent or from unexpected sources, can be used by adversaries to discover files and objects within an S3 bucket.
+*   **TA0008 - Lateral Movement**: (Less direct, but enumeration can be a precursor)
+    *   While not direct lateral movement, successful enumeration of S3 buckets could reveal sensitive data that facilitates lateral movement within an organization's cloud environment.
+*   **TA0009 - Collection**:
+    *   If sensitive data is found within the bucket, the `ListObjects` and subsequent `GetObject` (not directly observed but implied) actions are part of data collection.
+*   **TA0011 - Command and Control**: (Indirect)
+    *   If the S3 bucket is used to exfiltrate data, the C2 channel could be established through S3 interactions.
+*   **TA0040 - Cloud Infrastructure Discovery**:
+    *   T1580 - Cloud Service Discovery: Adversaries may discover cloud services like S3 buckets to identify potential targets.
+    *   T1614 - Cloud Storage Discovery: Specifically targets the discovery of cloud storage resources.
+
+## 5. Indicators of Compromise (IOCs)
+
+*   **Source IPs**: IPs like `177.131.167.145`, `212.83.184.16`, `212.83.184.13`, `109.70.66.85`, `194.126.177.33` exhibiting suspicious activity (e.g., repeated attempts, anonymous access).
+*   **Event Names**: `ListObjects` with `Repeated Attempts` > 1.
+*   **User ID**: Entries showing `ANONYMOUS_PRINCIPAL` for sensitive operations.
+*   **Alert IDs**: Any entry with a value in the 'Alert' column.
+*   **Request User Agents**: Unusual or known malicious user agents (further analysis needed on specific agents).
+
+## 6. Recommended Actions
+
+1.  **Investigate Alerted Events**: Prioritize the investigation of events marked with an 'Alert'. Examine the specific alert details to understand the triggered rule.
+2.  **Review Bucket Policies**: Ensure the 'microsoft-devtest' S3 bucket has appropriate access control policies that restrict anonymous access.
+3.  **Analyze Source IPs**: Correlate the identified suspicious source IPs with known threat intelligence feeds. Consider blocking IPs exhibiting persistent malicious behavior.
+4.  **Examine User Agent Strings**: Investigate the 'Request User Agent' field for any known malicious or automated tool signatures.
+5.  **Implement Logging and Monitoring**: Enhance S3 logging to capture more granular details and configure alerts for suspicious activities like excessive `ListObjects` calls or access from unexpected locations.
+6.  **User Behavior Analytics (UBA)**: If possible, integrate these logs with a UBA system to detect deviations from normal access patterns.
+
+## 7. Additional Context
+
+The logs primarily focus on S3 bucket operations. The 'microsoft-devtest' bucket name suggests it might be a development or testing environment, which can sometimes have weaker security configurations. The presence of anonymous access attempts is a significant concern, regardless of the environment's intended purpose.
+
+## 8. Final Classification
+
+**High Confidence - Suspicious Activity Detected**
+
+The combination of anonymous access, repeated object listing attempts, and triggered alerts points towards potential reconnaissance or unauthorized access attempts targeting the S3 bucket. Further investigation is warranted to confirm malicious intent.
+
+```

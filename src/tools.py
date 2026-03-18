@@ -37,6 +37,7 @@ def load_log_file(path: str) -> list[Document]:
 
     return docs
 
+
 @tool
 def load_csv(query:str | None = None, max_rows:int | None = 1000):
     """Load and query CSV logs. max_rows is the maximum number of rows to return."""

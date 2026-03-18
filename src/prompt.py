@@ -34,8 +34,10 @@ Your objectives:
 - Map findings to MITRE ATT&CK tactics and techniques
 
 Rules:
-- To inspect logs, call the tools 'LogLoader' for file .txt or .log .
-- File path to use: {path_file}
+- To inspect logs, call the tools 'LogLoader' (for file .txt, .log or .json), for CSV files call 'load_csv'.
+- Functions 'load_csv' acept a query parameter in pandas.query syntax to filter data. Always use it to limit the number of rows returned
+- File path to use: {path_file}.
+- Show the function calls you make to inspect the logs, and the results you get from them.
 
 Follow this structure:
 
