@@ -38,40 +38,30 @@ Selecioneis três arquivos diferentes com para os testes. O conjuntos de dados s
 Mudei os nomes dos arquivos originais por uma questão de facilidade:
 
 - ec2_proxy_s3_exfiltration_2020-09-14011940 -> file_01.json 
-- xxx -> file_01.csv
-- yyy -> file_02.txt
+- sh_binary_padding_dd_2020-11-10081941.log  -> file_02.log
+- ec2_proxy_s3_exfiltration_2020-09-14011940 -> file_03.json
 
- ## Privillege_escalation 
+ ## Privillege_escalation - file_01.json
 
-Táticas e tecnicas que estavam no arquivos:
+Táticas e tecnicas:
+
 - Tactics:	TA0001,TA0003,TA0004,TA0005,TA0009
-- Techniques:	T1078.004,T1530
+- Techniques: T1078.004,T1530
 
 
 Ollama resultados:
 - Tactics:
 - Techniques:
 
-
 Gemini resultado:
 
 - Tactics:
 - Techniques:
 
-## Teste 02 -
+## Teste 02 - Defesen Evasion - file_02.log
 
-Ollama resultados:
-- Tactics:
-- Techniques:
-
-
-Gemini resultado:
-
-- Tactics:
-- Techniques:
-
-
-## Teste 03 - 
+- Tactics: TA0005
+- Techniques: T1027.001
 
 Ollama resultados:
 - Tactics:
@@ -84,10 +74,26 @@ Gemini resultado:
 - Techniques:
 
 
+## Teste 03 - Persistence - file_02.json
+
+- Tactics: TA0001,TA0003,TA0004,TA0005,TA0009
+- Techniques: T1078.004,T1530
+
+Ollama resultados:
+- Tactics:
+- Techniques:
+
+
+Gemini resultado:
+
+- Tactics:
+- Techniques:
 
 
 ## Notebooks originais
 
  [AWS Privellege Escalation](./notebooks/atomic/aws/privilege_escalation/SDAWS-200914011940.ipynb0)
+ [Linux Defense Evasion](./notebooks/atomic/linux/defense_evasion/SDLIN-201110081941.ipynb)
+ [AWS Persistence](./notebooks/atomic/aws/persistence/ec2_proxy_s3_exfiltration_2020-09-14011940.json)
  
  
