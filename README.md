@@ -39,7 +39,7 @@ Mudei os nomes dos arquivos originais por uma questão de facilidade:
 
 - ec2_proxy_s3_exfiltration_2020-09-14011940 -> file_01.json 
 - sh_binary_padding_dd_2020-11-10081941.log  -> file_02.log
-- ec2_proxy_s3_exfiltration_2020-09-14011940 -> file_03.json
+- AWS_S3_HoneyBucketLogs.csv -> file_03.json
 
  ## Privillege_escalation - file_01.json
 
@@ -74,10 +74,10 @@ Gemini resultado:
 - Techniques:
 
 
-## Teste 03 - Persistence - file_02.json
+## Teste 03 - Discovery - file_03.csv
 
-- Tactics: TA0001,TA0003,TA0004,TA0005,TA0009
-- Techniques: T1078.004,T1530
+- Tactics: TA0007
+- Techniques: T1580
 
 Ollama resultados:
 - Tactics:
@@ -92,8 +92,8 @@ Gemini resultado:
 
 ## Notebooks originais
 
- [AWS Privellege Escalation](./notebooks/atomic/aws/privilege_escalation/SDAWS-200914011940.ipynb0)
+ [AWS Privellege Escalation](./notebooks/atomic/aws/privilege_escalation/SDAWS-200914011940.ipynb)
  [Linux Defense Evasion](./notebooks/atomic/linux/defense_evasion/SDLIN-201110081941.ipynb)
- [AWS Persistence](./notebooks/atomic/aws/persistence/ec2_proxy_s3_exfiltration_2020-09-14011940.json)
+ [AWS Discovery](./notebooks/atomic/aws/discovery/SDAWS-2202181000.ipynb)
  
  

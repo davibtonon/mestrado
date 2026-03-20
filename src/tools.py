@@ -1,5 +1,5 @@
 from langchain.tools import tool 
-from langchain_community.document_loaders import TextLoader
+from langchain_community.document_loaders import TextLoader, JSONLoader
 from langchain_core.documents import Document
 
 import pandas as pd
@@ -16,7 +16,8 @@ def set_csv_path(path):
 class LogLoader:
     _LOADER = {
         '.txt': TextLoader,
-        '.log': TextLoader
+        '.log': TextLoader,
+        '.json': JSONLoader,
     }
 
     @classmethod

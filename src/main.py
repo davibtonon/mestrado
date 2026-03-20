@@ -68,6 +68,6 @@ file_01 = DATA_DIR / "file_01.json"
 file_02 = DATA_DIR / "file_02.log"
 file_03 = DATA_DIR / "file_03.json"
 
-print(file_03)
-print_analysis(str(file_03))
+print(file_02)
+print_analysis(str(file_02))
 
