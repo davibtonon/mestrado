@@ -228,3 +228,6 @@ __marimo__/
 # Add below lines to exclude OS settings and caches
 .trash/
 .DS_Store
+.vs/slnx.sqlite
+.vs/VSWorkspaceState.json
+.vs/mestrado/v16/.suo
