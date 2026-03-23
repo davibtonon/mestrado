@@ -1,4 +1,4 @@
-from langchain.agents import create_agent
+from langchain.agents import create_agent, AgentState
 from langchain_core.prompts import PromptTemplate 
 
 from tools import load_csv, load_log_file
@@ -18,6 +18,7 @@ def agent(path_file:str):
     return create_agent(
         model= LLMFactory().get_model(), 
         system_prompt=system_prompt,
-        tools=[load_csv, load_log_file],
+        tools=[load_log_file],
+        debug=False
         #stream=False
     )

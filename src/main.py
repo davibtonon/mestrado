@@ -35,11 +35,15 @@ def run_analysis(path_file:str, provider: str | None = None):
         "messages": [
             HumanMessage(content=f"""
                          Analyse the file {path_file} and:
-                         
-                         1. Call 'load_log_file' to read the file.
-                         2. Query for suspicious patterns, anomalies, and security events.
-                         3. Map findings to MITRE ATT&CK tactics, techniques and procedures.
-                         4. Produce the full structured report.
+                        You can use the tool 'load_log_file' to read the file.
+
+                        You MUST continue the analysis after using the tool.
+                        Do NOT stop after calling a tool.
+                      
+                         1. Look for suspicious patterns, anomalies, and security events.
+                         3. Map findings to MITRE ATT&CK tactics, techniques, and procedures (TTPs).
+                         4. Explicitly list all identified TTPs (with ID, name, and explanation)
+                         5. If none are found, return: "No TTPs identified".
                          
                          File: {path_file}
                          """)
@@ -48,7 +52,7 @@ def run_analysis(path_file:str, provider: str | None = None):
     )
 
 def print_analysis(path_file:str):
-    result = run_analysis(path_file)
+    result = run_analysis(path_file, 'gemini')
     messages = result.get("messages", [])
     if not messages:
         print("No messages returned from agent.")
@@ -68,6 +72,6 @@ file_01 = DATA_DIR / "file_01.json"
 file_02 = DATA_DIR / "file_02.log"
 file_03 = DATA_DIR / "file_03.csv"
 
-print(file_01)
-print_analysis(str(file_01))
+print(file_02)
+print_analysis(str(file_02))
 

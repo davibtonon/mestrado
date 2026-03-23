@@ -1,4 +1,4 @@
-{
+[{
     "requestParameters": {
         "DescribeInstanceTypesRequest": {
             "NextToken": "AAIAAUCZLcGdOTmfTz2Vwy7qCVgVq6KNMDDo2s_UFVQdUl8JzmoaM3geYg-eTVO56npOwVkgRcbnccOAIh5xaIntUaFwx3Yzg5z0gJcGwKSvIHr7PoKDSMugzTo27wztP16CU4jRhTPQdzL5kAyA8MMWqgrYKoT5J0xc",
@@ -34,7 +34,7 @@
     "@timestamp": "2020-09-14T00:44:23.000Z",
     "eventID": "fd4f1042-c7f6-4107-a6ee-d841d92596e7",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "filterSet": {},
@@ -75,7 +75,7 @@
     "@timestamp": "2020-09-14T00:44:24.000Z",
     "eventID": "a3d34faf-076e-44ff-b2f7-605d76705a81",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "filterSet": {
@@ -124,7 +124,7 @@
     "@timestamp": "2020-09-14T00:44:24.000Z",
     "eventID": "53bb6d95-8860-4dc1-8bd8-be013478fd8b",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "filterSet": {},
@@ -165,7 +165,7 @@
     "@timestamp": "2020-09-14T00:44:23.000Z",
     "eventID": "d51c533f-2427-4474-aef9-4169a23abf08",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "attribute": "disableApiTermination",
@@ -200,7 +200,7 @@
     "@timestamp": "2020-09-14T00:44:24.000Z",
     "eventID": "1e2bf051-8907-4aa7-8aed-b67d6eb016d6",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "accountAttributeNameSet": {},
@@ -235,7 +235,7 @@
     "@timestamp": "2020-09-14T00:44:22.000Z",
     "eventID": "c2ea5356-3919-43de-8cec-0f2bbb83d33b",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "volumeSet": {},
@@ -271,7 +271,7 @@
     "@timestamp": "2020-09-14T00:44:20.000Z",
     "eventID": "08995520-0ec9-4966-8ff5-22517e5a0a81",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "DescribeInstanceCreditSpecificationsRequest": {
@@ -310,7 +310,7 @@
     "@timestamp": "2020-09-14T00:44:23.000Z",
     "eventID": "d346cbee-47c4-4ebe-b8d0-377b75861523",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "DescribeHostsRequest": {
@@ -346,7 +346,7 @@
     "@timestamp": "2020-09-14T00:44:20.000Z",
     "eventID": "5ac3e493-2666-4173-8514-f12b77eb147f",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "instancesSet": {},
@@ -395,7 +395,7 @@
     "@timestamp": "2020-09-14T00:44:20.000Z",
     "eventID": "2537a6ac-5b7f-461e-a886-6541a8c58291",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "instancesSet": {},
@@ -431,7 +431,7 @@
     "@timestamp": "2020-09-14T00:44:22.000Z",
     "eventID": "e7cf1dc4-7f77-45d0-968d-ba376307b4c7",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "DescribeLaunchTemplatesRequest": {
@@ -467,7 +467,7 @@
     "@timestamp": "2020-09-14T00:44:21.000Z",
     "eventID": "3403e605-0dc0-45de-a926-9a07386c2c36",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": null,
     "userAgent": "console.ec2.amazonaws.com",
@@ -500,7 +500,7 @@
     "eventID": "ce9f76cc-8348-4b27-860b-8435f0e77881",
     "eventVersion": "1.05",
     "apiVersion": "2012-06-01"
-}
+},
 {
     "requestParameters": {
         "sharedUsersSet": {
@@ -543,7 +543,7 @@
     "@timestamp": "2020-09-14T00:45:48.000Z",
     "eventID": "c4f43c05-86df-46ae-9cf6-a62fab8b2d9c",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "filterSet": {
@@ -591,7 +591,7 @@
     "@timestamp": "2020-09-14T00:45:36.000Z",
     "eventID": "d8fa1e48-d4ca-466a-9114-5f20f1940afa",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "filterSet": {
@@ -639,7 +639,7 @@
     "@timestamp": "2020-09-14T00:45:36.000Z",
     "eventID": "71700b54-b6cd-4a90-8e6c-e5e188bde594",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "filterSet": {
@@ -687,7 +687,7 @@
     "@timestamp": "2020-09-14T00:45:36.000Z",
     "eventID": "950dd4fa-b004-405b-97fe-6898b9866ad7",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "filterSet": {
@@ -735,7 +735,7 @@
     "@timestamp": "2020-09-14T00:45:30.000Z",
     "eventID": "f63d3cf4-5246-4ae6-8da0-5824a317d1f0",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "filterSet": {
@@ -783,7 +783,7 @@
     "@timestamp": "2020-09-14T00:45:36.000Z",
     "eventID": "df57e2d9-44fe-4320-bd7c-1aee3a7dd7b2",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "filterSet": {
@@ -831,7 +831,7 @@
     "@timestamp": "2020-09-14T00:45:36.000Z",
     "eventID": "f3526d90-b015-4a09-addc-8c745e0838af",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "filterSet": {
@@ -879,7 +879,7 @@
     "@timestamp": "2020-09-14T00:45:36.000Z",
     "eventID": "97610454-719a-4904-8735-7590bc715f3c",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "filterSet": {
@@ -927,7 +927,7 @@
     "@timestamp": "2020-09-14T00:45:30.000Z",
     "eventID": "0dfd94a8-7e4f-4f14-8b55-93810280aae8",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "filterSet": {
@@ -975,7 +975,7 @@
     "@timestamp": "2020-09-14T00:45:30.000Z",
     "eventID": "b33e9e63-9ad9-412b-8bcb-b509d3756ec6",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "filterSet": {
@@ -1023,7 +1023,7 @@
     "@timestamp": "2020-09-14T00:45:36.000Z",
     "eventID": "898658cd-ffee-4c5c-a504-ee2cec9a0cab",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "availabilityZoneSet": {},
@@ -1058,7 +1058,7 @@
     "@timestamp": "2020-09-14T00:45:36.000Z",
     "eventID": "4bbed25d-843a-4ad9-811c-835e8067f1b8",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "filterSet": {
@@ -1106,7 +1106,7 @@
     "@timestamp": "2020-09-14T00:45:36.000Z",
     "eventID": "069f5832-34bf-474b-af68-f46af1def90a",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "filterSet": {
@@ -1154,7 +1154,7 @@
     "@timestamp": "2020-09-14T00:45:36.000Z",
     "eventID": "dfb94fa0-1a0b-4641-8f79-87e648dc1bde",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "filterSet": {
@@ -1202,7 +1202,7 @@
     "@timestamp": "2020-09-14T00:45:36.000Z",
     "eventID": "46123a55-a05a-4795-81be-fcb0306e1486",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "availabilityZoneSet": {},
@@ -1237,7 +1237,7 @@
     "@timestamp": "2020-09-14T00:45:36.000Z",
     "eventID": "ad9fac17-866b-4a2e-b15b-84c7c1a7fd7b",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "filterSet": {
@@ -1285,7 +1285,7 @@
     "@timestamp": "2020-09-14T00:45:36.000Z",
     "eventID": "243e1796-b782-462e-b371-16455846443b",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "DescribeVolumesModificationsRequest": {
@@ -1321,7 +1321,7 @@
     "@timestamp": "2020-09-14T00:45:36.000Z",
     "eventID": "a1ad1d2c-4a8d-4804-b1d3-9a4fdedebf3f",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "filterSet": {
@@ -1369,7 +1369,7 @@
     "@timestamp": "2020-09-14T00:45:36.000Z",
     "eventID": "a4b522a4-3b1c-4b47-b470-b15b6493991c",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "filterSet": {
@@ -1417,7 +1417,7 @@
     "@timestamp": "2020-09-14T00:45:36.000Z",
     "eventID": "af8f962a-79ad-470e-b955-7b4c07ffae6c",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "instancesSet": {
@@ -1459,7 +1459,7 @@
     "@timestamp": "2020-09-14T00:44:24.000Z",
     "eventID": "c893a79b-12c6-4f21-9490-c4920a30fa14",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "DescribeInstanceTypesRequest": {
@@ -1496,7 +1496,7 @@
     "@timestamp": "2020-09-14T00:44:23.000Z",
     "eventID": "71b87b90-4502-49ba-98cb-773bfb6a402f",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "filterSet": {
@@ -1545,7 +1545,7 @@
     "@timestamp": "2020-09-14T00:44:23.000Z",
     "eventID": "b1f20335-d4d4-4d9c-a215-4f6e501a6a8b",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "excludeManagedAlarms": false,
@@ -1580,7 +1580,7 @@
     "@timestamp": "2020-09-14T00:44:22.000Z",
     "eventID": "c4c3837f-8613-49f9-b1b0-e71306f4a71d",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "filterSet": {
@@ -1632,7 +1632,7 @@
     "@timestamp": "2020-09-14T00:44:22.000Z",
     "eventID": "835fa1e2-8872-49f4-a838-eb9b8f14c1ec",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": null,
     "userAgent": "console.ec2.amazonaws.com",
@@ -1665,7 +1665,7 @@
     "readOnly": true,
     "eventID": "56536abf-0dce-480a-afbe-3bc8e1f60198",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "roleSessionName": "i-044b1baf4c96e1b62",
@@ -1702,7 +1702,7 @@
     "@timestamp": "2020-09-14T00:50:17.000Z",
     "eventID": "0f902c35-794c-4864-b2e0-3c4564b857b0",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "roleSessionName": "i-044b1baf4c96e1b62",
@@ -1739,7 +1739,7 @@
     "@timestamp": "2020-09-14T00:50:17.000Z",
     "eventID": "c9dd614e-0d2e-4c01-992a-eec74b38399b",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "roleSessionName": "i-0317f6c6b66ae9c40",
@@ -1776,7 +1776,7 @@
     "@timestamp": "2020-09-14T00:48:30.000Z",
     "eventID": "1da77391-d4f7-4c3f-bc15-dcb4e5e1e4d8",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "roleSessionName": "i-0317f6c6b66ae9c40",
@@ -1813,7 +1813,7 @@
     "@timestamp": "2020-09-14T00:48:30.000Z",
     "eventID": "a2de2399-b9c8-494d-b76f-cb0c377784c5",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "roleSessionName": "i-0317f6c6b66ae9c40",
@@ -1850,7 +1850,7 @@
     "@timestamp": "2020-09-14T00:48:30.000Z",
     "eventID": "a3a3dded-7c27-42c0-a42d-891cdd436278",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "prefix": "",
@@ -1914,8 +1914,8 @@
         "x-amz-id-2": "CwG1p2GevuppO1cfaaU0oSCg6Bd6Hwc3Rf/ySaU2HejdK532VxwbHA6PUvtvWIkQmJkoyA3LCJg="
     },
     "eventVersion": "1.07",
-    "managementEvent": false
-}
+    "managementEv,ent": false
+},
 {
     "requestParameters": {
         "prefix": "",
@@ -1979,8 +1979,8 @@
         "x-amz-id-2": "HH0SS5jMpPNnRz4M/ZeRnno7dZniL9yCxyZADc9YIaU781MvIPMGPYIAGDJIxYfUgFCR19PPHiw="
     },
     "eventVersion": "1.07",
-    "managementEvent": false
-}
+    "managementEv,ent": false
+},
 {
     "requestParameters": {
         "prefix": "",
@@ -2044,8 +2044,8 @@
         "x-amz-id-2": "h/t1vaORPhYSZ8lkMVvm7oiL/rw93qfZoM96mTDYvsFKTjnnreW34nq6MYW4EG90TWVqEMb7DhA="
     },
     "eventVersion": "1.07",
-    "managementEvent": false
-}
+    "managementEv,ent": false
+},
 {
     "requestParameters": {
         "instancesSet": {
@@ -2087,7 +2087,7 @@
     "@timestamp": "2020-09-14T00:57:43.000Z",
     "eventID": "eeebe333-536e-415c-841c-d027811f6a90",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "filterSet": {},
@@ -2128,7 +2128,7 @@
     "@timestamp": "2020-09-14T00:57:43.000Z",
     "eventID": "ed41e310-5179-4c31-a909-2fa5b7db1267",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "filterSet": {},
@@ -2169,7 +2169,7 @@
     "@timestamp": "2020-09-14T00:57:43.000Z",
     "eventID": "0124fdcb-2a12-4352-9630-335728b8d79c",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "attribute": "disableApiTermination",
@@ -2204,7 +2204,7 @@
     "@timestamp": "2020-09-14T00:57:41.000Z",
     "eventID": "ff86143e-b912-40bc-b9b6-2d471ea83d6d",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "instancesSet": {
@@ -2249,7 +2249,7 @@
     "@timestamp": "2020-09-14T00:57:42.000Z",
     "eventID": "47d313f7-079d-4297-b697-3f3e01a82c22",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "instancesSet": {},
@@ -2285,7 +2285,7 @@
     "@timestamp": "2020-09-14T00:57:41.000Z",
     "eventID": "ce0f45a3-4711-4bf8-9607-ec78b1f7692e",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "filterSet": {
@@ -2334,7 +2334,7 @@
     "@timestamp": "2020-09-14T00:57:43.000Z",
     "eventID": "009ff682-4c44-4208-ae06-7672534d7d43",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "instancesSet": {
@@ -2376,7 +2376,7 @@
     "@timestamp": "2020-09-14T00:57:42.000Z",
     "eventID": "e4200a1e-2ef3-4f65-a63e-d1b3e1e65880",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "filterSet": {
@@ -2424,7 +2424,7 @@
     "@timestamp": "2020-09-14T00:57:41.000Z",
     "eventID": "0ed1ffd7-2dba-46c6-abd6-6576a260a2fb",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "attribute": "disableApiTermination",
@@ -2459,7 +2459,7 @@
     "@timestamp": "2020-09-14T00:57:43.000Z",
     "eventID": "1135079b-1245-4047-8265-17aba78f4adb",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "filterSet": {},
@@ -2500,7 +2500,7 @@
     "@timestamp": "2020-09-14T00:57:41.000Z",
     "eventID": "f52a8af1-93fc-405e-9a8c-044392823255",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "filterSet": {
@@ -2552,7 +2552,7 @@
     "@timestamp": "2020-09-14T00:57:42.000Z",
     "eventID": "35c4a543-5c42-48f0-a737-b37e6fedf2e8",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "filterSet": {},
@@ -2593,7 +2593,7 @@
     "@timestamp": "2020-09-14T00:57:42.000Z",
     "eventID": "88ded0b0-4862-4be0-8b1d-e99beb0400a2",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "filterSet": {},
@@ -2634,7 +2634,7 @@
     "@timestamp": "2020-09-14T00:57:43.000Z",
     "eventID": "4d44b8ae-31b8-423f-aeec-5eb293ebe15a",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "filterSet": {
@@ -2688,7 +2688,7 @@
     "@timestamp": "2020-09-14T00:57:42.000Z",
     "eventID": "f8c5d6b5-90d4-4cc4-931b-4fc6cb6614fb",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "filterSet": {
@@ -2762,7 +2762,7 @@
     "@timestamp": "2020-09-14T00:57:42.000Z",
     "eventID": "e44840be-9f5c-4ced-ac3a-d0200dcb4315",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "instancesSet": {
@@ -2804,7 +2804,7 @@
     "@timestamp": "2020-09-14T00:57:42.000Z",
     "eventID": "052b798c-e210-4e2f-8462-34dc448ee26b",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "filterSet": {
@@ -2853,7 +2853,7 @@
     "@timestamp": "2020-09-14T00:57:43.000Z",
     "eventID": "61bd7b2e-72c1-455a-9736-c05528bafeb1",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "filterSet": {},
@@ -2894,7 +2894,7 @@
     "@timestamp": "2020-09-14T00:57:41.000Z",
     "eventID": "80b56b93-acfa-4aa4-8562-c4cd2eae3654",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "attribute": "disableApiTermination",
@@ -2929,7 +2929,7 @@
     "@timestamp": "2020-09-14T00:57:43.000Z",
     "eventID": "c21afb56-c61a-4a4d-8568-0197eac184ea",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "instancesSet": {
@@ -2971,7 +2971,7 @@
     "@timestamp": "2020-09-14T00:57:44.000Z",
     "eventID": "bd13bf66-fccc-433f-be89-e54d4c5708d0",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "filterSet": {},
@@ -3012,7 +3012,7 @@
     "@timestamp": "2020-09-14T00:57:43.000Z",
     "eventID": "47c1b524-8acb-4000-89cc-77666d5c3f42",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "filterSet": {
@@ -3066,7 +3066,7 @@
     "@timestamp": "2020-09-14T00:57:44.000Z",
     "eventID": "5b7dbaf6-02ae-4cfd-b001-6f686c578836",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "filterSet": {
@@ -3140,7 +3140,7 @@
     "@timestamp": "2020-09-14T00:57:43.000Z",
     "eventID": "0bd33dc5-e7cf-46a0-80aa-c772fb0a6189",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "filterSet": {
@@ -3189,7 +3189,7 @@
     "@timestamp": "2020-09-14T00:57:41.000Z",
     "eventID": "99a6b740-32ad-4038-83f7-033dc2b3b86a",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "excludeManagedAlarms": false,
@@ -3224,7 +3224,7 @@
     "@timestamp": "2020-09-14T00:57:42.000Z",
     "eventID": "5ddc2c39-e5c7-4130-84fc-11755e9f5f80",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "accountAttributeNameSet": {},
@@ -3259,7 +3259,7 @@
     "@timestamp": "2020-09-14T00:57:41.000Z",
     "eventID": "4cc85d0b-89c1-4387-9796-cfec134eb32d",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "filterSet": {},
@@ -3300,7 +3300,7 @@
     "@timestamp": "2020-09-14T00:57:43.000Z",
     "eventID": "0fb7ad6d-d95b-4d7a-92e3-f917ad3a3f23",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "DescribeInstanceCreditSpecificationsRequest": {
@@ -3339,7 +3339,7 @@
     "@timestamp": "2020-09-14T00:57:41.000Z",
     "eventID": "25c6dc97-ec37-4ac0-8b80-73c53c8bced7",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "DescribeInstanceCreditSpecificationsRequest": {
@@ -3378,7 +3378,7 @@
     "@timestamp": "2020-09-14T00:57:43.000Z",
     "eventID": "7404046f-0d0f-42dc-af38-1833120d0593",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "DescribeInstanceCreditSpecificationsRequest": {
@@ -3417,7 +3417,7 @@
     "@timestamp": "2020-09-14T00:57:43.000Z",
     "eventID": "08528807-5f31-4eee-974e-c5a241685bf3",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": null,
     "userAgent": "console.ec2.amazonaws.com",
@@ -3450,7 +3450,7 @@
     "readOnly": true,
     "eventID": "dfbb69c0-9279-45bb-91f7-786f7f8ff9ee",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "key": "ring.txt",
@@ -3512,8 +3512,8 @@
         "x-amz-id-2": "gyAgfHKWBQDUmPzc6Za14YfKLUew1NZi81kJ1w95x6ibnEsBn7rpYrjnoTeUrjEGGMfXo7BgS70="
     },
     "eventVersion": "1.07",
-    "managementEvent": false
-}
+    "managementEv,ent": false
+},
 {
     "requestParameters": {
         "prefix": "",
@@ -3577,8 +3577,8 @@
         "x-amz-id-2": "+Spw83MOPQclpxc+Z1971w0H8hsgUuebvNAUNm5GXznL6HLo2QSsZG1y/ko66W6/2KEQIYmfKJ8="
     },
     "eventVersion": "1.07",
-    "managementEvent": false
-}
+    "managementEv,ent": false
+},
 {
     "requestParameters": {
         "DescribeLaunchTemplatesRequest": {
@@ -3614,7 +3614,7 @@
     "@timestamp": "2020-09-14T00:53:58.000Z",
     "eventID": "6b370685-beca-406d-8c8f-12923721a17e",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "availabilityZoneSet": {},
@@ -3649,7 +3649,7 @@
     "@timestamp": "2020-09-14T00:53:58.000Z",
     "eventID": "62409375-a381-4dcd-ad13-cebad66e9244",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "volumeSet": {},
@@ -3685,7 +3685,7 @@
     "@timestamp": "2020-09-14T00:53:58.000Z",
     "eventID": "735a92c8-4bb5-4cc6-bc76-d4aaca9ebd8b",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "filterSet": {},
@@ -3720,7 +3720,7 @@
     "@timestamp": "2020-09-14T00:53:58.000Z",
     "eventID": "0db359e8-bd02-4328-87c3-5ff2a5e1c5d5",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "keyPairIdSet": {},
@@ -3756,7 +3756,7 @@
     "@timestamp": "2020-09-14T00:53:58.000Z",
     "eventID": "d4ea45a9-8fde-4938-9911-e743cb97a2a3",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "DescribeHostsRequest": {
@@ -3792,7 +3792,7 @@
     "@timestamp": "2020-09-14T00:53:58.000Z",
     "eventID": "3096b6fd-66f1-49a7-8da8-e9af6b55939e",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "instancesSet": {},
@@ -3828,7 +3828,7 @@
     "@timestamp": "2020-09-14T00:53:58.000Z",
     "eventID": "ab9a1cbb-a698-4f6d-85d2-2bdc4b67f12c",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "instancesSet": {},
@@ -3877,7 +3877,7 @@
     "@timestamp": "2020-09-14T00:53:58.000Z",
     "eventID": "6e47bb14-a425-45d8-94da-8f0196ea93b2",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "placementGroupIdSet": {},
@@ -3913,7 +3913,7 @@
     "@timestamp": "2020-09-14T00:53:58.000Z",
     "eventID": "c573f313-0f35-4c68-a479-6daf7713a6e2",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "accountAttributeNameSet": {
@@ -3954,7 +3954,7 @@
     "@timestamp": "2020-09-14T00:53:58.000Z",
     "eventID": "e27095b8-a9ed-4e1a-a8ac-0d07bf4cd970",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "accountAttributeNameSet": {
@@ -3995,7 +3995,7 @@
     "@timestamp": "2020-09-14T00:53:58.000Z",
     "eventID": "2672c09f-b83d-4e9f-8c54-7db32a53c3bd",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "securityGroupSet": {},
@@ -4032,7 +4032,7 @@
     "@timestamp": "2020-09-14T00:53:58.000Z",
     "eventID": "febafbe4-bc57-412e-8aeb-a9a986f48882",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "filterSet": {},
@@ -4068,7 +4068,7 @@
     "@timestamp": "2020-09-14T00:53:58.000Z",
     "eventID": "721f56fc-8e20-487a-826e-f0b374c98ac0",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": null,
     "userAgent": "console.ec2.amazonaws.com",
@@ -4101,7 +4101,7 @@
     "eventID": "97998cf1-fdcf-4d73-9bd3-0a5753d0c6e2",
     "eventVersion": "1.05",
     "apiVersion": "2012-06-01"
-}
+},
 {
     "requestParameters": {
         "sharedUsersSet": {},
@@ -4145,7 +4145,7 @@
     "@timestamp": "2020-09-14T00:53:58.000Z",
     "eventID": "a4c6a7a0-5b91-4d64-8ac1-229f95f05c67",
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": null,
     "userAgent": "console.ec2.amazonaws.com",
@@ -4178,7 +4178,7 @@
     "eventID": "0bfb4a18-6c30-4e64-81eb-0e195693eb69",
     "eventVersion": "1.05",
     "apiVersion": "2015-12-01"
-}
+},
 {
     "requestParameters": {
         "Host": "s3.amazonaws.com"
@@ -4225,7 +4225,7 @@
         "x-amz-id-2": "kYiD7zKnS/MdFmNlhWneMJr7EOTZev+JvUOTM34Ho5YVRcTX4gg/C8hhd9hjHV65aB1Zw6GNB9U="
     },
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "Host": "s3.amazonaws.com"
@@ -4272,7 +4272,7 @@
         "x-amz-id-2": "Z2RgjEqHTUqNHo0FXfsJ3VQJeWyQMbm6WyOoil5pe1IZBIcFiX7gXfDpy5hlYIJpSwfM/DOEuok="
     },
     "eventVersion": "1.05"
-}
+},
 {
     "requestParameters": {
         "Host": "mordors3stack-s3bucket-llp2yingx64a.s3.amazonaws.com",
@@ -4337,8 +4337,8 @@
         "x-amz-id-2": "4CQoleTomIld4HqR2P2pORmS7fLf2tZjt1ZGB8Sii4c+/3FPkTo+tReHYeV9D3CuAtneVgdeeoc="
     },
     "eventVersion": "1.07",
-    "managementEvent": false
-}
+    "managementEv,ent": false
+},
 {
     "requestParameters": {
         "Host": "mordors3stack-s3bucket-llp2yingx64a.s3.amazonaws.com",
@@ -4403,8 +4403,8 @@
         "x-amz-id-2": "URT7JtEDdDUExSySPThoJsZRT3/S2cd/Kes6JqKEbq2C7JAVfc4+raS5eiO1iFx522bNzdZgvSg="
     },
     "eventVersion": "1.07",
-    "managementEvent": false
-}
+    "managementEv,ent": false
+},
 {
     "requestParameters": {
         "prefix": "",
@@ -4468,8 +4468,8 @@
         "x-amz-id-2": "h1Kc1LiWPE5h1IyFt266/UoWnj+UL6n/3lgiFznt7VGYaNzGDHbpWHh/uosS3tCiyHa4j7DKo5k="
     },
     "eventVersion": "1.07",
-    "managementEvent": false
-}
+    "managementEv,ent": false
+},
 {
     "requestParameters": {
         "key": "ring.txt",
@@ -4531,5 +4531,6 @@
         "x-amz-id-2": "7sUQ3Xnuy1+6p2q4h8VM9f5MgKvPwDRd0JvnZYy6YgCKRQaI9r9QM9vgHgNp6bzoXBIR9URDgwc="
     },
     "eventVersion": "1.07",
-    "managementEvent": false
+    "managementEv,ent": false
 }
+]

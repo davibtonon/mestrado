@@ -27,7 +27,7 @@ class Settings(BaseSettings):
 
     # Config for Ollama
     OLLAMA_URL: str = Field(default="http://localhost:11434")
-    OLLAMA_MODEL: str = Field(default="llama3.2:latest ")
+    OLLAMA_MODEL: str = Field(default="qwen2.5:7b")
     
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
 
