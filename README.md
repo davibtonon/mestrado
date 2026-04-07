@@ -92,8 +92,8 @@ Gemini resultado:
 
 ## Notebooks originais
 
- [AWS Privellege Escalation](./notebooks/atomic/aws/privilege_escalation/SDAWS-200914011940.ipynb)
- [Linux Defense Evasion](./notebooks/atomic/linux/defense_evasion/SDLIN-201110081941.ipynb)
- [AWS Discovery](./notebooks/atomic/aws/discovery/SDAWS-2202181000.ipynb)
+ [AWS Privellege Escalation](./notebooks/atomic/aws/privilege_escalation/SDAWS-200914011940.ipynb)  
+ [Linux Defense Evasion](./notebooks/atomic/linux/defense_evasion/SDLIN-201110081941.ipynb)  
+ [AWS Discovery](./notebooks/atomic/aws/discovery/SDAWS-2202181000.ipynb)  
  
  
