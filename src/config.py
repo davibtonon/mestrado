@@ -37,6 +37,7 @@ settings = Settings()
 PROJECT_DIR  = Path(__file__).resolve().parents[1]
 BASE_DIR  = PROJECT_DIR / "src"           # project root
 DATA_DIR = PROJECT_DIR / "data" / "raw"
+LLM_REPORT = PROJECT_DIR / "data" /'report'
 
 
 

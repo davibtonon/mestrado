@@ -1,0 +1,15 @@
+File: C:\davi_tonon\mestrado\data\raw\file_02.log
+
+Findings:
+
+Suspicious Syscall Activity:
+- Description: The log shows a SYSCALL event indicating an audit of system calls. 
+  This syscall event includes details such as the timestamp, success status (success=yes), and parameters used in the operation.
+- Evidence: type=SYSCALL msg=audit(1604996384.965:93777): arch=c000003e syscall=59...
+- Severity: This is a normal audit event, not inherently suspicious on its own.
+
+Mapped TTP:
+No relevant MITRE ATT&CK TTPs identified based on the provided log entries.
+The log contains typical system call and path events related to file operations and permissions checks. There are no indicators of potential malicious activities such as code execution or privilege escalation that would align with common ATT&CK frameworks.
+
+In summary, while this log provides detailed system behavior information through syscall auditing, it doesn't demonstrate patterns that align with known MITRE ATT&CK tactics for malicious intent.

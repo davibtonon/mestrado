@@ -96,4 +96,9 @@ Gemini resultado:
  [Linux Defense Evasion](./notebooks/atomic/linux/defense_evasion/SDLIN-201110081941.ipynb)  
  [AWS Discovery](./notebooks/atomic/aws/discovery/SDAWS-2202181000.ipynb)  
  
- 
+ ## Próximo
+
+ - Tentar com uma LLM voltada para segurança;
+ - Usar RAG com base do mitre
+ - Base de dados vetorial.
+ - Salva resposta do sistema em arquivo txt.

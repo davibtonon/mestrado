@@ -1,7 +1,9 @@
-from config import DATA_DIR
+from config import DATA_DIR, settings, LLM_REPORT
 from model import agent
 from langchain_core.messages import HumanMessage
 from tools import set_csv_path
+from prompt import CONTENT_PROMPT
+from pathlib import Path
 
 
 # def run_analysis(path_file:str):
@@ -23,6 +25,7 @@ from tools import set_csv_path
 #     }
 #     )
 
+
 def run_analysis(path_file:str, provider: str | None = None):
 
     set_csv_path(path_file)
@@ -33,26 +36,14 @@ def run_analysis(path_file:str, provider: str | None = None):
 
     return agent(path_file=path_file).invoke({
         "messages": [
-            HumanMessage(content=f"""
-                         Analyse the file {path_file} and:
-                        You can use the tool 'load_log_file' to read the file.
-
-                        You MUST continue the analysis after using the tool.
-                        Do NOT stop after calling a tool.
-                      
-                         1. Look for suspicious patterns, anomalies, and security events.
-                         3. Map findings to MITRE ATT&CK tactics, techniques, and procedures (TTPs).
-                         4. Explicitly list all identified TTPs (with ID, name, and explanation)
-                         5. If none are found, return: "No TTPs identified".
-                         
-                         File: {path_file}
-                         """)
+            HumanMessage(content=CONTENT_PROMPT.format(path_file=path_file))
         ]
     }
     )
 
+
 def print_analysis(path_file:str):
-    result = run_analysis(path_file, 'gemini')
+    result = run_analysis(path_file)
     messages = result.get("messages", [])
     if not messages:
         print("No messages returned from agent.")
@@ -60,18 +51,38 @@ def print_analysis(path_file:str):
     
     last_message = messages[-1]
     print("=== Agent Trace ===")
-    for msg in messages:
-        print(f"[{msg.__class__.__name__}]: {msg.content}")
+    #for msg in messages:
+    #    print(f"[{msg.__class__.__name__}]: {msg.content}")
     
     print("\n=== Final Report ===")
     print(last_message.content)
 
+    save_file(last_message.content, path_file)
 
-file_path = DATA_DIR / "file_linux.log"
-file_01 = DATA_DIR / "file_01.json"
-file_02 = DATA_DIR / "file_02.log"
-file_03 = DATA_DIR / "file_03.csv"
 
-print(file_01)
-print_analysis(str(file_01))
+def save_file(msg, path_file):
+    base_name = Path(path_file).stem
+    file_name = f'{base_name}_{settings.LLM_PROVIDER}.txt'
+                     
+    full_path = LLM_REPORT / file_name
 
+    with open(full_path, "w", encoding="utf-8") as f:
+        f.write(msg)
+    
+    print(f"Saved to: {full_path}")
+
+
+
+# save_file('tes', file_path)
+
+if __name__ == "__main__":
+
+    files = [
+        DATA_DIR / "file_01.json",
+        DATA_DIR / "file_02.log",
+        DATA_DIR / "file_03.csv"
+    ]
+
+    for file in files:
+        print(file)
+        print_analysis(str(file))
