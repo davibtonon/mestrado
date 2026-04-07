@@ -3,38 +3,27 @@ File: C:\davi_tonon\mestrado\data\raw\file_02.log
 Findings:
 
 [Finding 1]
-- Description: The log shows the execution of the 'dd' command with arguments 'if=/dev/zero', 'bs=1', and 'count=1'. This command is typically used for data manipulation. While this specific instance appears benign (writing a single null byte), the 'dd' command is versatile and can be used for overwriting data, creating disk images, or even wiping drives, which could be a precursor to destructive actions.
+- Description: The log shows the execution of the 'dd' command with arguments 'if=/dev/zero', 'bs=1', and 'count=1'. This command is often used for overwriting data or creating files with null bytes. While not inherently malicious, its usage in certain contexts might be suspicious, for example, if it's used to wipe sensitive data or as part of a larger attack chain.
 - Evidence:
-  - `type=SYSCALL msg=audit(1604996384.965:93777): ... comm="dd" exe="/bin/dd"`
+  - `type=SYSCALL msg=audit(1604996384.965:93777): arch=c000003e syscall=59 success=yes exit=0 a0=558e25052c70 a1=558e251641a0 a2=558e25160800 a3=1b6 items=2 ppid=29002 pid=2168 auid=1000 uid=1000 gid=1000 euid=1000 suid=1000 fsuid=1000 egid=1000 sgid=1000 fsgid=1000 tty=pts0 ses=104 comm="dd" exe="/bin/dd" key=(null)`
   - `type=EXECVE msg=audit(1604996384.965:93777): argc=4 a0="dd" a1="if=/dev/zero" a2="bs=1" a3="count=1"`
+  - `type=PROCTITLE msg=audit(1604996384.965:93777): proctitle=64640069663D2F6465762F7A65726F0062733D3100636F756E743D31`
 - Severity: Medium
-- Confidence: High
+- Confidence: Medium
 
 Mapped TTP:
 - ID: T1059.004
 - Name: Command and Scripting Interpreter: Unix Shell
-- Explanation: The execution of the `dd` command is facilitated through the Unix shell. The log explicitly shows the command and its arguments being executed, indicating the use of shell to run system utilities.
+- Explanation: The 'dd' command is being executed, which is a common utility on Unix-like systems. The log shows the direct invocation of this command, suggesting its use via a shell for system operations. While 'dd' itself is a versatile tool, its execution falls under the broader category of command execution via system interpreters.
 
 [Finding 2]
-- Description: The log indicates the `dd` command was executed from the `/home/wardog` directory. While not inherently malicious, a user executing data manipulation tools from their home directory is common. However, if this were part of a larger attack, it could indicate an attacker's working directory.
-- Evidence: `type=CWD msg=audit(1604996384.965:93777): cwd="/home/wardog"`
-- Severity: Low
-- Confidence: High
-
-Mapped TTP:
-- ID: T1083
-- Name: File and Directory Discovery
-- Explanation: The CWD (current working directory) field indicates the directory from which the command was executed. This is a basic piece of information that an attacker might leverage to understand their environment or prepare for further actions. While the log only shows the CWD, it's a component of understanding the file system that aligns with this technique.
-
-[Finding 3]
-- Description: The log shows that the `dd` command was executed with specific arguments related to input (`if=/dev/zero`), block size (`bs=1`), and count (`count=1`). This level of detail in command execution logging can be valuable for forensic analysis. In a security context, similar detailed logging of file manipulation commands might be used to track unauthorized data access or modification.
+- Description: The log indicates the creation of a file or overwriting of data with null bytes using 'dd if=/dev/zero bs=1 count=1'. This specific usage pattern could potentially be part of an attempt to clear or nullify specific data sectors or files, which might be a precursor to data destruction or obfuscation.
 - Evidence:
-  - `type=SYSCALL msg=audit(1604996384.965:93777): ... exe="/bin/dd"`
   - `type=EXECVE msg=audit(1604996384.965:93777): argc=4 a0="dd" a1="if=/dev/zero" a2="bs=1" a3="count=1"`
 - Severity: Low
-- Confidence: High
+- Confidence: Low
 
 Mapped TTP:
-- ID: T1204.002
-- Name: Malicious File Execution: User Execution
-- Explanation: The log demonstrates the execution of a command (`dd`) by a user (auid=1000). While the command itself isn't necessarily malicious in this instance, the technique applies to any user-initiated execution of a program or script, which could be leveraged for malicious purposes. The presence of detailed command arguments provides insight into the user's action.
+- ID: T1485
+- Name: Data Destruction
+- Explanation: The command `dd if=/dev/zero bs=1 count=1` can be used to overwrite data with zeros. While this specific instance is small, it aligns with the technique of data destruction, which aims to destroy or corrupt data and disrupt availability. Further context would be needed to confirm malicious intent.

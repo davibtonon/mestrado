@@ -1,36 +1,63 @@
-Analysis:
-The provided logs contain a series of AWS API calls made by the IAM user 'pedro' and assumed roles. Most of the activity appears to be routine information gathering and management operations.
+Analysis of the provided logs indicates the following:
 
-However, there is one notable activity:
+File: C:\davi_tonon\mestrado\data\raw\file_01.json
 
-**Finding 1:**
+Findings:
 
-*   **Description:** The log shows multiple `AssumeRole` events initiated by `ec2.amazonaws.com`, indicating that EC2 instances are assuming specific IAM roles. While this is a standard AWS practice for granting permissions to EC2 instances, the roles being assumed (`MordorLogCollectorStack-LogCollectorRole-1JJTG88NNY4KN` and `MordorNginxStack-BankingWAFRole-9S3E0UAE1MM0`) and the context in which they are used might warrant further investigation depending on the expected security posture. Specifically, the `BankingWAFRole` being assumed by an EC2 instance (`i-0317f6c6b66ae9c40`) at `2020-09-14T00:48:30Z` with `mfaAuthenticated: false` could be a point of interest if MFA is a strict requirement for all role assumptions.
-*   **Evidence:**
-    *   `{"eventName": "AssumeRole", "sourceIPAddress": "ec2.amazonaws.com", ..., "roleArn": "arn:aws:iam::123456789123:role/MordorLogCollectorStack-LogCollectorRole-1JJTG88NNY4KN", "@timestamp": "2020-09-14T00:50:17.000Z", ...}`
-    *   `{"eventName": "AssumeRole", "sourceIPAddress": "ec2.amazonaws.com", ..., "roleArn": "arn:aws:iam::123456789123:role/MordorNginxStack-BankingWAFRole-9S3E0UAE1MM0/i-0317f6c6b66ae9c40", "@timestamp": "2020-09-14T00:48:30.000Z", "userIdentity": {"type": "AssumedRole", "sessionContext": {"attributes": {"mfaAuthenticated": "false", ...}}}, ...}`
-*   **Severity:** Medium (Potential for privilege escalation if roles are over-privileged or assumed unexpectedly)
-*   **Confidence:** High (Directly observed from logs)
+[Finding 1]
+- Description: The user 'pedro' performed multiple Describe* API calls within a short period, indicating potential reconnaissance activity. The calls include DescribeInstanceTypes, DescribeInstances, DescribeAddresses, DescribeAccountAttributes, DescribeVolumes, DescribeInstanceAttribute, DescribeInstanceStatus, DescribeLaunchTemplates, DescribeLoadBalancers, DescribeSnapshots, DescribeTags, DescribeAvailabilityZones, DescribeKeyPairs, DescribePlacementGroups, and DescribeSecurityGroups.
+- Evidence: Multiple log entries show the user 'pedro' invoking various EC2 and related service Describe APIs between 00:44:20Z and 00:57:43Z on 2020-09-14.
+- Severity: Medium
+- Confidence: High
 
-**Mapped TTP:**
+Mapped TTP:
+- ID: T1083
+- Name: File and Directory Discovery
+- Explanation: The extensive use of Describe* calls suggests the user is attempting to discover information about the AWS environment, including instances, volumes, security groups, and network configurations. This aligns with the objective of understanding the target system's structure and resources.
 
-*   **ID:** T1078.004
-*   **Name:** T1078 Valid Accounts: Cloud Accounts
-*   **Explanation:** The logs show multiple instances of EC2 services assuming IAM roles (`AssumeRole` API calls). This is a legitimate mechanism for granting permissions in AWS. However, if these roles are overly permissive or assumed in a context that deviates from normal operations (e.g., no MFA when expected), it could be indicative of an attacker attempting to leverage cloud credentials or gain elevated privileges. The specific roles and the lack of MFA in one instance warrant attention.
+- ID: T1592
+- Name: Gather Victim Host Information
+- Explanation: The repeated querying of instance, volume, network, and security group details indicates an effort to gather comprehensive information about the victim's AWS infrastructure.
 
-**Finding 2:**
+[Finding 2]
+- Description: An EC2 instance (i-0317f6c6b66ae9c40) is associated with multiple AssumeRole events, indicating that the instance is assuming different IAM roles. This could be a normal operational activity, but it might also indicate attempts to escalate privileges or access resources beyond its intended scope.
+- Evidence: Multiple log entries show the `AssumeRole` event for `i-0317f6c6b66ae9c40` with different `roleArn` values, occurring around `2020-09-14T00:48:30Z`. The assumed roles include `arn:aws:iam::123456789123:role/MordorLogCollectorStack-LogCollectorRole-1JJTG88NNY4KN` and `arn:aws:iam::123456789123:role/MordorNginxStack-BankingWAFRole-9S3E0UAE1MM0`. Notably, `mfaAuthenticated` is 'false' for these assumed roles.
+- Severity: Medium
+- Confidence: High
 
-*   **Description:** The log contains `ListObjects` and `GetObject` API calls to an S3 bucket (`mordors3stack-s3bucket-llp2yingx64a`) made by an assumed role (`MordorNginxStack-BankingWAFRole-9S3E0UAE1MM0` associated with `i-0317f6c6b66ae9c40`). The `GetObject` call specifically retrieves the `ring.txt` file. While accessing S3 buckets is normal, the context of the assumed role and the file being accessed could be relevant. The fact that `mfaAuthenticated` is `false` for this assumed role is also noted.
-*   **Evidence:**
-    *   `{"eventName": "ListObjects", ..., "bucketName": "mordors3stack-s3bucket-llp2yingx64a", "@timestamp": "2020-09-14T01:12:40.000Z", "userIdentity": {"type": "AssumedRole", "sessionContext": {"attributes": {"mfaAuthenticated": "false", ...}}}, ...}`
-    *   `{"eventName": "GetObject", ..., "key": "ring.txt", "bucketName": "mordors3stack-s3bucket-llp2yingx64a", "@timestamp": "2020-09-14T01:13:20.000Z", "userIdentity": {"type": "AssumedRole", "sessionContext": {"attributes": {"mfaAuthenticated": "false", ...}}}, ...}`
-*   **Severity:** Medium
-*   **Confidence:** High
+Mapped TTP:
+- ID: T1078.004
+- Name: Cloud Accounts: Cloud-Specific Service Roles
+- Explanation: The log shows an EC2 instance assuming AWS service roles. While legitimate, an attacker might exploit this to gain broader access by assuming roles with excessive privileges. The lack of MFA ('mfaAuthenticated': 'false') further increases the risk if these roles have sensitive permissions.
 
-**Mapped TTP:**
+- ID: T1134.002
+- Name: Access Token Manipulation: Create Process or Service
+- Explanation: Although not directly observed, the `AssumeRole` action is a mechanism for obtaining temporary credentials that can be used to access AWS resources. If an attacker compromises an instance, they could leverage `AssumeRole` to gain access to other services or escalate privileges.
 
-*   **ID:** T1530
-*   **Name:** Data from Cloud Storage
-*   **Explanation:** The logs show `ListObjects` and `GetObject` calls to an S3 bucket. This indicates that data stored in S3 is being accessed. If this access is unauthorized or part of a data exfiltration attempt, it aligns with this technique. The specific file `ring.txt` being accessed via an assumed role without MFA could be part of an attacker's activity.
+[Finding 3]
+- Description: The `i-0317f6c6b66ae9c40` instance, operating under the `MordorNginxStack-BankingWAFRole-9S3E0UAE1MM0` role, accessed an S3 bucket (`mordors3stack-s3bucket-llp2yingx64a`) and retrieved an object (`ring.txt`). The access was performed using AWS CLI and the assumed role's credentials, with MFA authentication being false.
+- Evidence: Log entries around `2020-09-14T01:00:33.000Z` to `2020-09-14T01:13:20.000Z` show `aws-cli` user agent performing `ListObjects` and `GetObject` on the specified S3 bucket and object. The `userIdentity` shows the role `MordorNginxStack-BankingWAFRole-9S3E0UAE1MM0` and `mfaAuthenticated: false`.
+- Severity: Low
+- Confidence: High
 
-**Note:** The majority of the log entries consist of various `Describe*` API calls (e.g., `DescribeInstances`, `DescribeVolumes`, `DescribeAddresses`, `DescribeSecurityGroups`, `DescribeAccountAttributes`). These are common reconnaissance activities. While frequent or unusual `Describe` calls can sometimes indicate suspicious behavior, in this context, they appear to be part of standard operational checks or initial information gathering by the user 'pedro'. Without more context on baseline activity, it's difficult to flag these as definitively malicious.
+Mapped TTP:
+- ID: T1078.004
+- Name: Cloud Accounts: Cloud-Specific Service Roles
+- Explanation: The access to S3 is performed using a cloud-specific service role. This is a legitimate action if intended, but it could be abused if the role has excessive permissions or if the access is unauthorized. The lack of MFA is a contributing factor to potential risk.
+
+- ID: T1537
+- Name: Transfer Data to Cloud Account
+- Explanation: While this entry shows data retrieval (`GetObject`), the overall pattern of accessing cloud storage could be part of a larger data exfiltration or manipulation process. If the objective was to upload data, this would map directly. In this case, it shows access to data within the cloud.
+
+[Finding 4]
+- Description: An EC2 instance (`i-044b1baf4c96e1b62`) and its associated volumes show signs of potential issues or configuration problems, specifically related to volume status.
+- Evidence: Logs from `2020-09-14T00:57:42Z` show `DescribeVolumeStatus` calls filtering for `impaired` volumes with `failed` details. The specific volume mentioned is `vol-0fec73ea9cce65247`.
+- Severity: Low
+- Confidence: Medium
+
+Mapped TTP:
+- ID: T1087.001
+- Name: Account Discovery: Local Account
+- Explanation: While not directly discovery, issues with volume status could indicate underlying problems with the instance or its storage, which might be relevant if an attacker is trying to disrupt operations or exploit system weaknesses. However, this is a weaker association. The primary finding here is an operational issue rather than a direct TTP.
+
+Note: The logs primarily show reconnaissance and assumed role activities. The volume status issue appears to be an operational concern rather than a direct security threat based solely on this data. Further investigation would be needed to determine if these activities are malicious or benign.
