@@ -11,5 +11,5 @@ dependencies = [
     "langchain-ollama>=1.0.0",
     "pandas>=2.3.3",
     "openai",
-    'langchain-groq'
+    'langchain-groq',
 ]

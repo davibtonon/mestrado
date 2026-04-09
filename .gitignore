@@ -8,6 +8,10 @@ __pycache__/
 notebooks/.Trash-0/
 /notebooks/atomic/*
 /notebooks/compound/*
+/llama.cp/*dll
+/llama.cp/*exe
+/models
+/llama.cp
 
 # C extensions
 *.so

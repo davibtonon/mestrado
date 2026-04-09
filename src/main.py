@@ -62,8 +62,12 @@ def print_analysis(path_file:str):
 
 def save_file(msg, path_file):
     base_name = Path(path_file).stem
-    file_name = f'{base_name}_{settings.LLM_PROVIDER}.txt'
-                     
+    
+    file_name = f'{base_name}_{settings.LLM_PROVIDER}.txt'           
+
+    if settings.LLM_PROVIDER == "ollama":
+        file_name = f'{base_name}_{settings.OLLAMA_MODEL}.txt'
+    
     full_path = LLM_REPORT / file_name
 
     with open(full_path, "w", encoding="utf-8") as f:

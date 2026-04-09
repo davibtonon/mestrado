@@ -102,3 +102,6 @@ Gemini resultado:
  - Usar RAG com base do mitre
  - Base de dados vetorial.
  - Salva resposta do sistema em arquivo txt.
+
+
+ llama-cli.exe -m models\Foundation-Sec-8B.Q4_K_M.gguf -ngl 35 -cnv
