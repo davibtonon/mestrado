@@ -6,6 +6,7 @@ from langchain_core.language_models import BaseLanguageModel
 from langchain_ollama import ChatOllama
 from langchain_groq import ChatGroq
 from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_openai import ChatOpenAI
 
 
 from config import settings
@@ -25,18 +26,21 @@ class LLMFactory:
         return ChatOpenAI(
             model = 'gpt-40',
             api_key = settings.OPENAI_API_KEY,
-            temperature = 0
+            temperature = settings.TEMPERATURE
         )
     def _build_groq(self,) -> BaseLanguageModel:
         return ChatGroq(
             model = 'openai/gpt-oss-20b',
-            max_tokens=None,
-
+            max_tokens = settings.NUM_TOKENS ,
         )
+    
     def _build_ollama(self) -> BaseLanguageModel:
         return ChatOllama(
             model = settings.OLLAMA_MODEL,
             base_url = settings.OLLAMA_URL,
+            temperature = settings.TEMPERATURE,
+            num_ctx = settings.NUM_TOKENS,
+
            # reasoning = True
         )
     

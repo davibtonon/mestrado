@@ -1,6 +1,8 @@
 from langchain.tools import tool 
 from langchain_community.document_loaders import TextLoader, JSONLoader
 from langchain_core.documents import Document
+from config import settings, LLM_REPORT
+# from transformers import AutoTokenizer
 
 import pandas as pd
 import os
@@ -27,11 +29,19 @@ class LogLoader:
     @staticmethod
     def get_doc(path:str) -> List[Document]:
         ext = Path(path).suffix.lower()
+        # tokenizer = AutoTokenizer.from_pretrained("hf-internal-testing/llama-tokenizer")
 
+        # with open(path, "r", encoding="utf-8") as f:
+        #     text = f.read()
+
+        # tokens = tokenizer.encode(text)
+        # print(f"Número de tokens: {len(tokens)}")
+        
+        
         if ext in ['.txt', '.log']:
             return LogLoader._load_text(path)
         elif ext == '.json':
-            return LogLoader._load_json(path)
+            return LogLoader._load_json_metadata(path)
         elif ext == '.csv':
             return LogLoader._load_csv(path)
         else:
@@ -67,6 +77,49 @@ class LogLoader:
                     line = line.strip()
                     if line:
                         docs.append(Document(page_content=line))
+
+        
+        return docs
+    
+
+    @staticmethod
+    def _load_json_metadata(path: str) -> list[Document]:
+        docs = []
+        
+        with open(path, 'r', encoding='utf-8') as f:
+            
+            first_char = f.read(1)
+            f.seek(0)
+            if first_char == '[':
+                data = json.load(f)
+                print(enumerate(data))
+
+                for i, item in enumerate(data):
+                    docs.append(
+                        Document(
+                            page_content=json.dumps(item, ensure_ascii=False),
+                            metadata={
+                                "source": path,
+                                "index": i
+                            }))
+                
+            else:
+                for i, line in enumerate(f):
+                    line = line.strip()
+                    if line:
+                        try:
+                            item = json.loads(line)
+                            content = json.dumps(item, ensure_ascii=False)
+                        except json.JSONDecodeError:
+                            content = line
+
+                        docs.append(
+                            Document(
+                                page_content=content,
+                                metadata={
+                                    "source": path,
+                                    "index":i,
+                                }))
 
         
         return docs
@@ -127,6 +180,22 @@ def load_csv(query:str | None = None, max_rows:int | None = 1000):
     except Exception as e:
         return {"Status": "Error", "message": str(e) }
     
+
+def save_file(msg, path_file):
+    base_name = Path(path_file).stem
+    
+    file_name = f'{base_name}_{settings.LLM_PROVIDER}.txt'           
+
+    if settings.LLM_PROVIDER == "ollama":
+        file_name = f'{base_name}_{settings.OLLAMA_MODEL}.txt'
+    
+    full_path = LLM_REPORT / file_name
+
+    with open(full_path, "w", encoding="utf-8") as f:
+        f.write(msg)
+    
+    print(f"Saved to: {full_path}")
+
 
 if __name__ == '__main__':
     from config import DATA_DIR

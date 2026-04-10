@@ -1,3 +1,5 @@
+from langchain_core.prompts import ChatPromptTemplate
+
 FIRST_TEMPLATE = """
 You are a cybersecurity analyst specialized in log analysis and MITRE ATT&CK mapping.
 
@@ -37,6 +39,17 @@ Rules:
 - Do NOT hallucinate
 - Be precise and technical
 - Always answer in English
+
+### OUTPUT REQUIREMENTS
+Provide the results in the following structured format:
+
+**MITRE ATT&CK Mapping**
+- **Tactics:**
+- **Techniques:**
+- **Technique IDs:**
+
+Log Excerpt:
+{context}
 
 """
 
@@ -94,4 +107,42 @@ IMPORTANT:
 """
 
 
+MAP_PROMPT = ChatPromptTemplate.from_template(
+    """ 
+You are a cybersecurity analyst specialized in log analysis and threat detection.
 
+
+OBJECTIVES:
+1. Identify suspicious patterns, anomalies, or potential security events.
+2. Describe each finding clearly based ONLY on log evidence.
+3. Map each finding to MITRE ATT&CK tactics, techniques, and procedures (TTPs).
+4. Explicitly list all identified TTPs with:
+   - ID (e.g., T1059 or T1059.001)
+   - Name
+   - Explanation (why it applies based on the logs)
+
+RULES:
+- Do NOT hallucinate or invent data.
+- Base all conclusions strictly on the log content.
+- If evidence is insufficient, state it clearly.
+
+Mapped TTP:
+- ID:
+- Name:
+- Explanation:
+
+If no suspicious activity or TTPs are found, return exactly:
+"No TTPs identified"
+
+
+Analyze this  log data excerpt and identify MITRE ATT&CK tactics, suspicious IPs, and anomalies:
+
+{context}
+"""
+)
+
+
+REDUCE_PROMPT = ChatPromptTemplate.from_template (
+   "Combine these partial analyses into a structured final incident report."
+   "Highlight the verdict (Attack Yes/No) and the MITRE techniques found:\n\n{summaries}"
+)

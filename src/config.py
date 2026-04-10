@@ -31,6 +31,14 @@ class Settings(BaseSettings):
     
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
 
+    # Config Gerais
+    TEMPERATURE: float= Field(default=0.0, ge=0.0, le=1.0)
+    NUM_TOKENS: int = Field(default=4096)
+    CHUNK_SIZE: int = Field(default=1000, gt=0, le=4096)
+
+    CHUNK_OVERLAP: int = Field(default=100, ge=0) 
+    
+
 settings = Settings()
 
 # Configurações de diretórios
