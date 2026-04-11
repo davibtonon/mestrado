@@ -15,5 +15,6 @@ dependencies = [
     'langchain-text-splitters',
     'jq',
     'transformers',
-    'langchain-openai'
+    'langchain-openai',
+    'hf'
 ]

@@ -10,7 +10,7 @@ notebooks/.Trash-0/
 /notebooks/compound/*
 /llama.cp/*dll
 /llama.cp/*exe
-/models
+/models/*.gguf
 /llama.cp
 
 # C extensions
