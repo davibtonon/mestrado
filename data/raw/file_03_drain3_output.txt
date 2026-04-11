@@ -1,0 +1,291 @@
+================================================================================
+RELATÓRIO DRAIN3
+================================================================================
+Arquivo: file_03.csv
+Total de padrões encontrados: 31
+
+Distribuição de severidade:
+- UNKNOWN: 302
+
+================================================================================
+PADRÕES
+================================================================================
+[1] Cluster ID: 6
+Template: <*> 'AWSAccount', 'principalId': <*> 'accountId': <*> 'microsoft-devtest', 'Host': <*> <*>
+Ocorrências: 125
+Severidade no cluster:
+  - UNKNOWN: 125
+Exemplos:
+  - Linha 6: AwsApiCall,HeadBucket,Z769P301RPQS9641,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com'}", 298-2022-02-16T16:57:17Z,4528f7f4-b1c2-4771-84ae-ceec55a30664,2022-02-16T16:57:17Z,2022-02-16T17:01:00.772363+00:00,194.126.177.33,,1
+  - Linha 39: AwsApiCall,HeadBucket,W3BNR9EJ3AGEN2A9,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com'}", 265-2022-02-01T03:56:06Z,5c188479-7c82-4045-b0e4-33e9f955b208,2022-02-01T03:56:06Z,2022-02-01T04:00:00.441943+00:00,92.240.200.17,Java/1.8.0_201,1
+  - Linha 61: AwsApiCall,HeadBucket,55VV8JSWHX5FTNZW,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com'}", 243-2022-01-21T03:54:12Z,cb1bd434-93b4-42a0-8b58-cf1ac63e8613,2022-01-21T03:54:12Z,2022-01-21T03:55:31.304704+00:00,103.14.106.229,Java/1.8.0_201,1
+--------------------------------------------------------------------------------
+[2] Cluster ID: 4
+Template: <*> 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'list-type': '2', 'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com', 'encoding-type': 'url'}", <*> Python/3.6.12 Linux/3.10.0-1160.6.1.el7.x86_64 <*>
+Ocorrências: 36
+Severidade no cluster:
+  - UNKNOWN: 36
+Exemplos:
+  - Linha 4: AwsApiCall,ListObjects,52VVZ4G5FW98VCH6,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'list-type': '2', 'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com', 'encoding-type': 'url'}", 300-2022-02-17T14:18:02Z,b0ab3ce6-d364-4990-bb52-e3f52a6c6ee1,2022-02-17T14:18:02Z,2022-02-17T14:19:37.875947+00:00,212.83.184.13,Boto3/1.17.40 Python/3.6.12 Linux/3.10.0-1160.6.1.el7.x86_64 Botocore/1.20.112,1
+  - Linha 8: AwsApiCall,ListObjects,MJ6M0CJKWCJC4A02,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'list-type': '2', 'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com', 'encoding-type': 'url'}", 296-2022-02-15T19:14:12Z,ebe16426-9397-4276-a585-e8d5fe673e9a,2022-02-15T19:14:12Z,2022-02-15T19:18:41.984258+00:00,212.83.184.14,Boto3/1.17.40 Python/3.6.12 Linux/3.10.0-1160.6.1.el7.x86_64 Botocore/1.20.112,1
+  - Linha 9: AwsApiCall,ListObjects,A4FQ4D6WSKR6STKM,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'list-type': '2', 'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com', 'encoding-type': 'url'}", 295-2022-02-15T14:28:17Z,af957ae7-3ab1-4ab7-a5c5-966448dcf932,2022-02-15T14:28:17Z,2022-02-15T14:29:17.782656+00:00,212.83.184.15,Boto3/1.17.40 Python/3.6.12 Linux/3.10.0-1160.6.1.el7.x86_64 Botocore/1.20.112,1
+--------------------------------------------------------------------------------
+[3] Cluster ID: 3
+Template: <*> 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com'}", <*> <*> <*> <*>
+Ocorrências: 27
+Severidade no cluster:
+  - UNKNOWN: 27
+Exemplos:
+  - Linha 3: AwsApiCall,ListObjects,HQG7RFA8C71N4YX1,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com'}", 301-2022-02-18T14:54:56Z,efb7c8fa-b38e-4710-9e84-6289bfad8057,2022-02-18T14:54:56Z,2022-02-18T14:59:14.075373+00:00,212.83.184.16,Boto3/1.17.40 Python/3.6.12 Linux/3.10.0-1160.6.1.el7.x86_64 Botocore/1.20.112,1
+  - Linha 7: AwsApiCall,ListObjects,3QTT86HJ4ASGR98E,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com'}", 297-2022-02-16T14:17:10Z,01c67079-e407-4aef-ae28-cf300a998840,2022-02-16T14:17:10Z,2022-02-16T14:20:47.752885+00:00,212.83.184.12,Boto3/1.17.40 Python/3.6.12 Linux/3.10.0-1160.6.1.el7.x86_64 Botocore/1.20.112,1
+  - Linha 14: AwsApiCall,HeadBucket,EJR2WJ1WK7XGTKY6,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com'}", 290-2022-02-12T18:28:16Z,91121ffb-0ede-4057-957a-b57d02249d1d,2022-02-12T18:28:16Z,2022-02-12T18:31:59.253448+00:00,212.83.184.18,Boto3/1.17.40 Python/3.6.12 Linux/3.10.0-1160.6.1.el7.x86_64 Botocore/1.20.112,1
+--------------------------------------------------------------------------------
+[4] Cluster ID: 14
+Template: <*> 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': <*> <*> <*> <*> <*> <*>
+Ocorrências: 18
+Severidade no cluster:
+  - UNKNOWN: 18
+Exemplos:
+  - Linha 90: AwsApiCall,HeadBucket,TTAKM6ZXFS0WVSKJ,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com'}", 214-2021-12-25T02:17:25Z,fdd39ed3-62e2-448a-bf9a-6f3c4f98f085,2021-12-25T02:17:25Z,2021-12-25T02:21:33.799375+00:00,35.233.62.116,Boto3/1.20.24 Python/3.9.9 Linux/5.4.0-1051-gke Botocore/1.23.24 Resource,1
+  - Linha 105: AwsApiCall,HeadBucket,0THP0SEGEET5RKNJ,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com'}", 199-2021-11-30T08:22:10Z,568d86fe-e70f-4268-b630-47910b5df288,2021-11-30T08:22:10Z,2021-11-30T08:23:33.654717+00:00,35.233.62.116,Boto3/1.20.12 Python/3.9.9 Linux/5.4.0-1051-gke Botocore/1.23.12 Resource,1
+  - Linha 107: AwsApiCall,HeadBucket,63EAB29MXNB27K9J,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com'}", 197-2021-11-29T03:08:37Z,767ff251-234d-4f6f-b5b0-bf157b860359,2021-11-29T03:08:37Z,2021-11-29T03:13:30.461029+00:00,130.211.54.158,Boto3/1.20.12 Python/3.9.9 Linux/5.4.0-1051-gke Botocore/1.23.12 Resource,1
+--------------------------------------------------------------------------------
+[5] Cluster ID: 5
+Template: <*> 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'list-type': '2', 'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com', 'encoding-type': 'url'}", <*>
+Ocorrências: 14
+Severidade no cluster:
+  - UNKNOWN: 14
+Exemplos:
+  - Linha 5: AwsApiCall,ListObjects,5V5JKDADPM7JGBQV,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'list-type': '2', 'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com', 'encoding-type': 'url'}", 299-2022-02-17T10:34:18Z,587a8b32-c614-4867-94cc-81a5ab39b790,2022-02-17T10:34:18Z,2022-02-17T10:37:27.400819+00:00,109.70.66.85,Go-http-client/1.1,1
+  - Linha 13: AwsApiCall,ListObjects,NQFB4HBJPQZBDPBJ,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'list-type': '2', 'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com', 'encoding-type': 'url'}", 291-2022-02-13T10:18:19Z,511897c5-3a25-49b1-8bc5-3c92d6650161,2022-02-13T10:18:19Z,2022-02-13T10:22:48.768989+00:00,92.240.206.202,Go-http-client/1.1,1
+  - Linha 17: AwsApiCall,ListObjects,NS5HGRG59PCFCN64,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'list-type': '2', 'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com', 'encoding-type': 'url'}", 287-2022-02-11T04:06:41Z,8fd66406-885a-4f43-add8-d027ce70e671,2022-02-11T04:06:41Z,2022-02-11T04:07:39.442363+00:00,37.61.226.250,Java/1.8.0_201,1
+--------------------------------------------------------------------------------
+[6] Cluster ID: 15
+Template: <*> 'AWSAccount', 'principalId': <*> 'accountId': <*> 'microsoft-devtest', 'Host': <*> <*> <*> <*>
+Ocorrências: 13
+Severidade no cluster:
+  - UNKNOWN: 13
+Exemplos:
+  - Linha 106: AwsApiCall,ListObjects,FYEYA3CHQC1FASSQ,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com', 'encoding-type': 'url'}", 198-2021-11-29T09:38:34Z,f5ba1d38-173d-4acf-aaf4-45f34ce0c2dc,2021-11-29T09:38:34Z,2021-11-29T09:41:07.964133+00:00,178.171.66.249,Go-http-client/1.1,1
+  - Linha 108: AwsApiCall,ListObjects,NVJK8X8Y1JCYPZMF,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com', 'encoding-type': 'url'}", 196-2021-11-25T10:10:51Z,93a054c8-0f69-4ce8-a4af-bbbb5c35596e,2021-11-25T10:10:51Z,2021-11-25T10:15:39.791789+00:00,158.46.168.82,Go-http-client/1.1,1
+  - Linha 131: AwsApiCall,ListObjects,B18803Y74VKX7BVJ,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com', 'encoding-type': 'url'}", 173-2021-10-16T09:39:55Z,d7f15c3a-19d6-450c-ab89-05278d9586c6,2021-10-16T09:39:55Z,2021-10-16T09:43:32.810011+00:00,178.171.102.26,Go-http-client/1.1,1
+--------------------------------------------------------------------------------
+[7] Cluster ID: 12
+Template: <*> 'AWSAccount', 'principalId': <*> 'accountId': <*> '2', 'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.eu-west-1.amazonaws.com'}", <*>
+Ocorrências: 12
+Severidade no cluster:
+  - UNKNOWN: 12
+Exemplos:
+  - Linha 82: AwsApiCall,ListObjects,1GZ4CSG8J9D8Z4ZN,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'list-type': '2', 'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.eu-west-1.amazonaws.com'}", 222-2022-01-04T06:20:47Z,852644ce-e78c-41de-a342-57060022fdc8,2022-01-04T06:20:47Z,2022-01-04T06:22:14.488039+00:00,95.216.202.243,Go-http-client/1.1,1
+  - Linha 120: AwsApiCall,ListObjects,VFDVCKG22ZWKQ3S3,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'list-type': '2', 'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.eu-west-1.amazonaws.com'}", 184-2021-10-31T01:41:52Z,2b1c7e79-076a-45b5-b828-faa07931be25,2021-10-31T01:41:52Z,2021-10-31T01:46:29.059462+00:00,95.217.154.203,Go-http-client/1.1,1
+  - Linha 150: AwsApiCall,ListObjects,AYDTRVN5JYDZHVV2,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'list-type': '2', 'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.eu-west-1.amazonaws.com'}", 154-2021-09-21T02:14:24Z,f5213ab9-6ead-45b4-9f64-dcf3835ab010,2021-09-21T02:14:24Z,2021-09-21T02:15:04.796297+00:00,95.216.151.196,Go-http-client/1.1,1
+--------------------------------------------------------------------------------
+[8] Cluster ID: 10
+Template: <*> 'AWSAccount', 'principalId': <*> 'accountId': <*> 'microsoft-devtest', 'Host': <*> 'encoding-type': 'url'}", <*> <*> <*> <*> <*>
+Ocorrências: 9
+Severidade no cluster:
+  - UNKNOWN: 9
+Exemplos:
+  - Linha 74: AwsApiCall,ListObjects,RNRPM63R8YPYHN83,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com', 'encoding-type': 'url'}", 230-2022-01-14T09:05:58Z,3f5ee428-9e60-4121-8040-dfbc0f307de1,2022-01-14T09:05:58Z,2022-01-14T09:10:35.933221+00:00,34.79.33.178,Boto3/1.20.24 Python/3.9.9 Linux/5.4.0-1051-gke Botocore/1.23.24 Resource,1
+  - Linha 129: AwsApiCall,ListObjects,T8SES0NBQFCXW059,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com', 'encoding-type': 'url'}", 175-2021-10-19T01:10:31Z,50ef0760-2622-48d7-a1e7-9e4b3881babf,2021-10-19T01:10:31Z,2021-10-19T01:12:01.493877+00:00,34.140.248.32,Boto3/1.18.53 Python/3.9.7 Linux/5.4.0-1049-gke Botocore/1.21.53 Resource,1
+  - Linha 130: AwsApiCall,ListObjects,F8PQS4MM82BWREKA,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com', 'encoding-type': 'url'}", 174-2021-10-17T18:07:26Z,1efc53ff-dc41-43d0-8114-8d4117623ef2,2021-10-17T18:07:26Z,2021-10-17T18:11:41.752017+00:00,104.155.101.3,Boto3/1.18.53 Python/3.9.7 Linux/5.4.0-1049-gke Botocore/1.21.53 Resource,1
+--------------------------------------------------------------------------------
+[9] Cluster ID: 2
+Template: <*> 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': <*> <*> (Windows NT <*> Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) <*> <*>
+Ocorrências: 7
+Severidade no cluster:
+  - UNKNOWN: 7
+Exemplos:
+  - Linha 2: AwsApiCall,ListObjects,E2E91AQVN6DJHZ91,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3-eu-west-1.amazonaws.com'}", 302-2022-02-18T17:34:57Z,283770f5-968d-448d-9328-0b010f4d3696,2022-02-18T17:34:57Z,2022-02-18T17:39:28.127636+00:00,177.131.167.145,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36",4
+  - Linha 65: AwsApiCall,ListObjects,2JWBMWDXC4MJDKE6,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com'}", 239-2022-01-20T08:14:18Z,091c8f11-2ad5-4573-a6a8-702eb580f4ce,2022-01-20T08:14:18Z,2022-01-20T08:14:36.686930+00:00,72.55.136.199,"Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36",1
+  - Linha 101: AwsApiCall,HeadBucket,KYTABQTAGHSDBNME,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com'}", 203-2021-12-02T00:14:12Z,d131db09-62e8-4242-b021-613c1920ade7,2021-12-02T00:14:12Z,2021-12-02T00:17:28.026266+00:00,192.175.111.231,"Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36",1
+--------------------------------------------------------------------------------
+[10] Cluster ID: 8
+Template: <*> 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com', 'encoding-type': 'url'}", <*> <*> <*> <*>
+Ocorrências: 6
+Severidade no cluster:
+  - UNKNOWN: 6
+Exemplos:
+  - Linha 28: AwsApiCall,ListObjects,J2Q5QEY9R89SK0J1,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com', 'encoding-type': 'url'}", 276-2022-02-06T14:43:30Z,5bf15475-253c-4e48-a117-9659fd6b21e6,2022-02-06T14:43:30Z,2022-02-06T14:48:19.001275+00:00,212.83.184.15,Boto3/1.17.40 Python/3.6.12 Linux/3.10.0-1160.6.1.el7.x86_64 Botocore/1.20.112,2
+  - Linha 34: AwsApiCall,ListObjects,G1QJ0CE8K8SPWPNZ,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com', 'encoding-type': 'url'}", 270-2022-02-03T14:24:17Z,19165e25-cd1f-406f-8d34-1e59e918d196,2022-02-03T14:24:17Z,2022-02-03T14:28:31.009490+00:00,212.83.184.15,Boto3/1.17.40 Python/3.6.12 Linux/3.10.0-1160.6.1.el7.x86_64 Botocore/1.20.112,2
+  - Linha 91: AwsApiCall,ListObjects,2K3K05Y3X1HXSKZ4,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com', 'encoding-type': 'url'}", 213-2021-12-24T15:05:44Z,674c1cb2-66b2-42f4-bca6-cb1f398d3e77,2021-12-24T15:05:44Z,2021-12-24T15:09:55.051784+00:00,212.83.184.13,Boto3/1.17.40 Python/3.6.12 Linux/3.10.0-1160.6.1.el7.x86_64 Botocore/1.20.112,1
+--------------------------------------------------------------------------------
+[11] Cluster ID: 7
+Template: <*> 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'list-type': '2', 'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com', 'encoding-type': 'url'}", <*> <*> <*> Botocore/1.23.24 Resource,1
+Ocorrências: 4
+Severidade no cluster:
+  - UNKNOWN: 4
+Exemplos:
+  - Linha 27: AwsApiCall,ListObjects,VYHMK3CTD4K2ZW5T,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'list-type': '2', 'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com', 'encoding-type': 'url'}", 277-2022-02-06T23:23:25Z,c26eb376-14ff-459e-90e3-9b84e17aee9c,2022-02-06T23:23:25Z,2022-02-06T23:25:01.532592+00:00,34.140.248.32,Boto3/1.20.24 Python/3.9.10 Linux/5.4.0-1054-gke Botocore/1.23.24 Resource,1
+  - Linha 33: AwsApiCall,ListObjects,3M1PS3PRHDYANV79,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'list-type': '2', 'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com', 'encoding-type': 'url'}", 271-2022-02-04T14:05:42Z,1523ef94-7cf1-4909-90cf-4907a2aabcf9,2022-02-04T14:05:42Z,2022-02-04T14:09:35.879608+00:00,34.140.248.32,Boto3/1.20.24 Python/3.9.10 Linux/5.4.0-1054-gke Botocore/1.23.24 Resource,1
+  - Linha 73: AwsApiCall,ListObjects,XP1SB1ZA5C9GA3M2,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'list-type': '2', 'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com', 'encoding-type': 'url'}", 231-2022-01-14T12:56:16Z,1490c690-e05e-4086-8f75-7e4af33867f0,2022-01-14T12:56:16Z,2022-01-14T12:57:58.157047+00:00,34.140.248.32,Boto3/1.20.24 Python/3.9.9 Linux/5.4.0-1051-gke Botocore/1.23.24 Resource,1
+--------------------------------------------------------------------------------
+[12] Cluster ID: 13
+Template: <*> 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com'}", <*> (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 <*>
+Ocorrências: 4
+Severidade no cluster:
+  - UNKNOWN: 4
+Exemplos:
+  - Linha 83: AwsApiCall,HeadBucket,EB557AMWC11YMP4E,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com'}", 221-2022-01-02T08:00:56Z,534b048f-876e-41fe-a2b6-a1680c6bbce6,2022-01-02T08:00:56Z,2022-01-02T08:06:07.531043+00:00,3.238.137.12,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36",1
+  - Linha 88: AwsApiCall,HeadBucket,A5WSXVZMV9643BB1,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com'}", 216-2021-12-27T12:01:15Z,40cca9ad-af36-40ef-bf76-e619e143297d,2021-12-27T12:01:15Z,2021-12-27T12:06:29.178038+00:00,3.238.137.11,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36",1
+  - Linha 275: AwsApiCall,ListObjects,7290DAE44DA4FFF5,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com'}", 29-2020-11-13T15:37:35Z,b8192630-3720-443d-aaaa-7c871378b42c,2020-11-13T15:37:35Z,2020-11-13T15:41:44.554773+00:00,3.94.59.56,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36",62
+--------------------------------------------------------------------------------
+[13] Cluster ID: 17
+Template: <*> 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com'}", <*> (Windows NT 10.0; Win64; x64; rv:90.0) Gecko/20100101 Firefox/90.0,1
+Ocorrências: 4
+Severidade no cluster:
+  - UNKNOWN: 4
+Exemplos:
+  - Linha 140: AwsApiCall,ListObjects,HDFKZHYBVNZYCP7H,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com'}", 164-2021-09-30T18:49:04Z,ef8f0368-30e1-413c-9165-b0dc3ac7e21d,2021-09-30T18:49:04Z,2021-09-30T18:50:01.289835+00:00,192.175.111.231,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:90.0) Gecko/20100101 Firefox/90.0,1
+  - Linha 141: AwsApiCall,ListObjects,7G3G10A4A84NV2KZ,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com'}", 163-2021-09-29T14:17:05Z,d8349de3-d772-426f-a6db-c97df2f99991,2021-09-29T14:17:05Z,2021-09-29T14:19:25.080643+00:00,192.175.111.228,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:90.0) Gecko/20100101 Firefox/90.0,1
+  - Linha 143: AwsApiCall,HeadBucket,X7AM3WSQW5MAYWAF,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com'}", 161-2021-09-28T20:09:11Z,4e6f2a2b-36ba-433f-8ec7-06fc9f96570f,2021-09-28T20:09:11Z,2021-09-28T20:14:12.774842+00:00,192.175.111.228,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:90.0) Gecko/20100101 Firefox/90.0,1
+--------------------------------------------------------------------------------
+[14] Cluster ID: 16
+Template: <*> 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com'}", <*> <*>
+Ocorrências: 2
+Severidade no cluster:
+  - UNKNOWN: 2
+Exemplos:
+  - Linha 139: AwsApiCall,HeadBucket,PNY69VAB7H98403B,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com'}", 165-2021-09-30T20:17:38Z,a56e2a0c-7ccf-4104-8b47-ca467f47b977,2021-09-30T20:17:38Z,2021-09-30T20:22:52.079945+00:00,89.238.150.174,Repeated Attempts:1,
+  - Linha 270: AwsApiCall,HeadBucket,C2CE59A5E04A8D8D,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com'}", 34-2020-12-23T01:51:39Z,863a6bce-2a4f-432e-8fe8-680d3a7cc29c,2020-12-23T01:51:39Z,2020-12-23T01:56:53.592554+00:00,82.223.107.58,Apache-HttpClient/4.5.2 (Java/1.8.0_121),1
+--------------------------------------------------------------------------------
+[15] Cluster ID: 19
+Template: <*> 'AWSAccount', 'principalId': <*> 'accountId': <*> '2', 'bucketName': 'microsoft-devtest', <*> <*> <*> <*> <*> <*> 'Host': 'microsoft-devtest.s3.eu-west-1.amazonaws.com'}", <*>
+Ocorrências: 2
+Severidade no cluster:
+  - UNKNOWN: 2
+Exemplos:
+  - Linha 240: AwsApiCall,ListObjects,M3XZJWHRDVJ7MPKJ,"{'type': 'AWSAccount', 'principalId': 'AIDAZTADS5TQBDY2MAAOH', 'accountId': '659285011680'}","{'list-type': '2', 'bucketName': 'microsoft-devtest', 'max-keys': '500', 'encoding-type': 'url', 'x-amz-request-payer': 'requester', 'Host': 'microsoft-devtest.s3.eu-west-1.amazonaws.com'}", 64-2021-03-22T16:02:57Z,9a2bcb2c-9e9a-44ce-84ce-07151187786c,2021-03-22T16:02:57Z,2021-03-22T16:07:17.581050+00:00,178.171.67.25,Go-http-client/1.1,1
+  - Linha 297: AwsApiCall,ListObjects,348644DD6869082F,"{'type': 'AWSAccount', 'principalId': '451083579297', 'accountId': '451083579297'}","{'list-type': '2', 'bucketName': 'microsoft-devtest', 'encoding-type': 'url', 'prefix': '', 'delimiter': '/', 'Host': 'microsoft-devtest.s3.eu-west-1.amazonaws.com'}", 7-2020-07-12T17:05:38Z,980443ff-f467-493d-afd1-9635f56315d4,2020-07-12T17:05:38Z,2020-07-12T17:06:10.563655+00:00,43.251.92.37,Ruby,1
+--------------------------------------------------------------------------------
+[16] Cluster ID: 20
+Template: <*> 'AWSAccount', 'principalId': <*> 'accountId': <*> 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.eu-west-1.amazonaws.com', 'key': <*> <*> <*> <*> <*>
+Ocorrências: 2
+Severidade no cluster:
+  - UNKNOWN: 2
+Exemplos:
+  - Linha 245: AwsApiCall,PutObject,1YYWQ5F7GCPH9KMR,"{'type': 'AWSAccount', 'principalId': '960312529846', 'accountId': '960312529846'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.eu-west-1.amazonaws.com', 'key': 'writeable_bucket.txt'}", 59-2021-03-18T23:18:46Z,96605dd7-971e-427c-86e3-8d6b86905b5b,2021-03-18T23:18:46Z,2021-03-18T23:21:06.037596+00:00,188.40.66.118,aws-sdk-go/1.35.1 (go1.15.6; linux; amd64),1
+  - Linha 295: AwsApiCall,PutObject,A04CA4F1EB7E5317,"{'type': 'AWSAccount', 'principalId': '451083579297', 'accountId': '451083579297'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.eu-west-1.amazonaws.com', 'key': 'hello.txt'}", 9-2020-07-12T20:19:53Z,b2d4a398-1f06-486b-8c24-aca2ffa76c64,2020-07-12T20:19:53Z,2020-07-12T20:20:08.693484+00:00,43.251.92.37,aws-cli/1.17.9 Python/3.6.0 Windows/10 botocore/1.14.9,1
+--------------------------------------------------------------------------------
+[17] Cluster ID: 21
+Template: <*> 'AWSAccount', 'principalId': <*> 'accountId': <*> 'microsoft-devtest', 'Host': <*> <*> <*> <*> Python/3.7.1 Linux/5.3.0-1038-gke Botocore/1.20.17 <*>
+Ocorrências: 2
+Severidade no cluster:
+  - UNKNOWN: 2
+Exemplos:
+  - Linha 250: AwsApiCall,PutObject,32FFEDF7A3562D7C,"{'type': 'AWSAccount', 'principalId': '960312529846', 'accountId': '960312529846'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.eu-west-1.amazonaws.com', 'key': 'writeable_bucket.txt'}", 54-2021-03-05T15:18:56Z,ead7f64c-3c11-4814-a449-58aafd314def,2021-03-05T15:18:56Z,2021-03-05T15:20:12.042959+00:00,35.205.104.93,Boto3/1.17.17 Python/3.7.1 Linux/5.3.0-1038-gke Botocore/1.20.17 Resource,1
+  - Linha 251: AwsApiCall,ListObjects,5020814F298297FB,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com', 'encoding-type': 'url'}", 53-2021-03-04T08:07:01Z,e85a07d2-5311-4cce-8dd0-2ce5792e0363,2021-03-04T08:07:01Z,2021-03-04T08:10:39.751790+00:00,35.205.104.93,Boto3/1.17.17 Python/3.7.1 Linux/5.3.0-1038-gke Botocore/1.20.17 Resource,2
+--------------------------------------------------------------------------------
+[18] Cluster ID: 22
+Template: <*> 'AWSAccount', 'principalId': 'AIDAZTADS5TQBDY2MAAOH', 'accountId': '659285011680'}","{'list-type': '2', 'bucketName': 'microsoft-devtest', 'max-keys': '0', 'encoding-type': 'url', 'x-amz-request-payer': 'requester', 'Host': 'microsoft-devtest.s3.eu-west-1.amazonaws.com'}", <*> Python/3.5.6 <*> <*> <*>
+Ocorrências: 2
+Severidade no cluster:
+  - UNKNOWN: 2
+Exemplos:
+  - Linha 272: AwsApiCall,ListObjects,63DAD520193B0BC5,"{'type': 'AWSAccount', 'principalId': 'AIDAZTADS5TQBDY2MAAOH', 'accountId': '659285011680'}","{'list-type': '2', 'bucketName': 'microsoft-devtest', 'max-keys': '0', 'encoding-type': 'url', 'x-amz-request-payer': 'requester', 'Host': 'microsoft-devtest.s3.eu-west-1.amazonaws.com'}", 32-2020-12-18T01:43:08Z,af77599c-6256-46db-9e12-f46951d3fb48,2020-12-18T01:43:08Z,2020-12-18T01:48:11.758199+00:00,34.78.227.165,Boto3/1.16.18 Python/3.5.6 Linux/5.3.0-1036-gke Botocore/1.19.18 Resource,1
+  - Linha 285: AwsApiCall,ListObjects,FHDZ3J1N5P3X2X0M,"{'type': 'AWSAccount', 'principalId': 'AIDAZTADS5TQBDY2MAAOH', 'accountId': '659285011680'}","{'list-type': '2', 'bucketName': 'microsoft-devtest', 'max-keys': '0', 'encoding-type': 'url', 'x-amz-request-payer': 'requester', 'Host': 'microsoft-devtest.s3.eu-west-1.amazonaws.com'}", 19-2020-09-16T11:44:49Z,cc17820e-967d-40d8-b024-856280e8d362,2020-09-16T11:44:49Z,2020-09-16T11:49:32.895864+00:00,34.76.78.209,Boto3/1.14.11 Python/3.5.6 Linux/4.19.112+ Botocore/1.17.11 Resource,2
+--------------------------------------------------------------------------------
+[19] Cluster ID: 1
+Template: Event Type,Event Name,Request ID,User ID,Request Parameters,Alert,Event ID,Event DateTime,Alarm DateTime,Source IP,Request User Agent,Repeated Attempts
+Ocorrências: 1
+Severidade no cluster:
+  - UNKNOWN: 1
+Exemplos:
+  - Linha 1: Event Type,Event Name,Request ID,User ID,Request Parameters,Alert,Event ID,Event DateTime,Alarm DateTime,Source IP,Request User Agent,Repeated Attempts
+--------------------------------------------------------------------------------
+[20] Cluster ID: 9
+Template: AwsApiCall,ListObjects,7EWZY48TVY9NCG8H,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'list-type': '2', 'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com', 'encoding-type': 'url'}", 240-2022-01-20T08:14:18Z,80c17ba8-de47-4c2c-97ba-2ef2a3b0380a,2022-01-20T08:14:18Z,2022-01-20T08:14:37.062785+00:00,64.15.129.118,"Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36",1
+Ocorrências: 1
+Severidade no cluster:
+  - UNKNOWN: 1
+Exemplos:
+  - Linha 64: AwsApiCall,ListObjects,7EWZY48TVY9NCG8H,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'list-type': '2', 'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com', 'encoding-type': 'url'}", 240-2022-01-20T08:14:18Z,80c17ba8-de47-4c2c-97ba-2ef2a3b0380a,2022-01-20T08:14:18Z,2022-01-20T08:14:37.062785+00:00,64.15.129.118,"Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36",1
+--------------------------------------------------------------------------------
+[21] Cluster ID: 11
+Template: AwsApiCall,ListObjects,PH8G0R5WAVM5S9M6,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com', 'encoding-type': 'url'}", 229-2022-01-13T21:31:43Z,33aa6c77-dfa4-4d2f-bbac-e8222f723f55,2022-01-13T21:31:43Z,2022-01-13T21:32:56.290803+00:00,93.100.136.232,"Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36",2
+Ocorrências: 1
+Severidade no cluster:
+  - UNKNOWN: 1
+Exemplos:
+  - Linha 75: AwsApiCall,ListObjects,PH8G0R5WAVM5S9M6,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com', 'encoding-type': 'url'}", 229-2022-01-13T21:31:43Z,33aa6c77-dfa4-4d2f-bbac-e8222f723f55,2022-01-13T21:31:43Z,2022-01-13T21:32:56.290803+00:00,93.100.136.232,"Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36",2
+--------------------------------------------------------------------------------
+[22] Cluster ID: 18
+Template: AwsApiCall,HeadBucket,6SPY2Z10D55NKZBX,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com'}", 65-2021-03-23T10:52:25Z,dc8b0f41-dc44-48dd-b77b-0b2f07b57249,2021-03-23T10:52:25Z,2021-03-23T10:57:37.755873+00:00,107.20.76.90,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36 Edg/89.0.774.57",2
+Ocorrências: 1
+Severidade no cluster:
+  - UNKNOWN: 1
+Exemplos:
+  - Linha 239: AwsApiCall,HeadBucket,6SPY2Z10D55NKZBX,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com'}", 65-2021-03-23T10:52:25Z,dc8b0f41-dc44-48dd-b77b-0b2f07b57249,2021-03-23T10:52:25Z,2021-03-23T10:57:37.755873+00:00,107.20.76.90,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36 Edg/89.0.774.57",2
+--------------------------------------------------------------------------------
+[23] Cluster ID: 23
+Template: AwsApiCall,HeadBucket,931900BA8CD6B1CF,"{'type': 'AWSAccount', 'principalId': 'AIDAJNSTHWDY27F2QAMTM', 'accountId': '271169583898'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.eu-west-1.amazonaws.com'}", 30-2020-11-18T20:48:56Z,5765d534-3cb2-4d72-8d4d-da15e4c6b529,2020-11-18T20:48:56Z,2020-11-18T20:52:38.507571+00:00,73.33.205.136,"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36",2
+Ocorrências: 1
+Severidade no cluster:
+  - UNKNOWN: 1
+Exemplos:
+  - Linha 274: AwsApiCall,HeadBucket,931900BA8CD6B1CF,"{'type': 'AWSAccount', 'principalId': 'AIDAJNSTHWDY27F2QAMTM', 'accountId': '271169583898'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.eu-west-1.amazonaws.com'}", 30-2020-11-18T20:48:56Z,5765d534-3cb2-4d72-8d4d-da15e4c6b529,2020-11-18T20:48:56Z,2020-11-18T20:52:38.507571+00:00,73.33.205.136,"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36",2
+--------------------------------------------------------------------------------
+[24] Cluster ID: 24
+Template: AwsApiCall,ListObjects,54DDF75C1D7576E6,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com', 'max-keys': '1000', 'prefix': 'a'}", 28-2020-11-03T08:12:29Z,1fb6c0e1-f558-434d-92f3-72e8410bb043,2020-11-03T08:12:29Z,2020-11-03T08:17:19.440088+00:00,34.77.197.251,Boto3/1.15.15 Python/3.5.6 Linux/4.19.112+ Botocore/1.18.15 Resource,1
+Ocorrências: 1
+Severidade no cluster:
+  - UNKNOWN: 1
+Exemplos:
+  - Linha 276: AwsApiCall,ListObjects,54DDF75C1D7576E6,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com', 'max-keys': '1000', 'prefix': 'a'}", 28-2020-11-03T08:12:29Z,1fb6c0e1-f558-434d-92f3-72e8410bb043,2020-11-03T08:12:29Z,2020-11-03T08:17:19.440088+00:00,34.77.197.251,Boto3/1.15.15 Python/3.5.6 Linux/4.19.112+ Botocore/1.18.15 Resource,1
+--------------------------------------------------------------------------------
+[25] Cluster ID: 25
+Template: AwsApiCall,ListObjects,AB2DDC40BFFD9CB8,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com', 'max-keys': '1000', 'prefix': 'd'}", 23-2020-09-30T18:43:36Z,2c2c2118-4f3f-4d00-9478-7f2fe0c76f0d,2020-09-30T18:43:36Z,2020-09-30T18:48:35.562815+00:00,174.248.16.174,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:52.0) Gecko/20100101 Firefox/52.0,1
+Ocorrências: 1
+Severidade no cluster:
+  - UNKNOWN: 1
+Exemplos:
+  - Linha 281: AwsApiCall,ListObjects,AB2DDC40BFFD9CB8,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com', 'max-keys': '1000', 'prefix': 'd'}", 23-2020-09-30T18:43:36Z,2c2c2118-4f3f-4d00-9478-7f2fe0c76f0d,2020-09-30T18:43:36Z,2020-09-30T18:48:35.562815+00:00,174.248.16.174,Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:52.0) Gecko/20100101 Firefox/52.0,1
+--------------------------------------------------------------------------------
+[26] Cluster ID: 26
+Template: AwsApiCall,ListObjects,243031B57C7D93F1,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com'}", 22-2020-09-24T11:17:08Z,d7ed6975-bf18-4a9f-b317-34636714dfc4,2020-09-24T11:17:08Z,2020-09-24T11:17:23.775892+00:00,151.210.145.223,Mozilla/5.0 (Windows NT 6.1; WOW64; rv:25.0) Gecko/20100101 Firefox/25.0,1
+Ocorrências: 1
+Severidade no cluster:
+  - UNKNOWN: 1
+Exemplos:
+  - Linha 282: AwsApiCall,ListObjects,243031B57C7D93F1,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com'}", 22-2020-09-24T11:17:08Z,d7ed6975-bf18-4a9f-b317-34636714dfc4,2020-09-24T11:17:08Z,2020-09-24T11:17:23.775892+00:00,151.210.145.223,Mozilla/5.0 (Windows NT 6.1; WOW64; rv:25.0) Gecko/20100101 Firefox/25.0,1
+--------------------------------------------------------------------------------
+[27] Cluster ID: 27
+Template: AwsApiCall,ListObjects,3C661964FC814803,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'list-type': '2', 'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com'}", 21-2020-09-24T00:03:31Z,1f44dd39-87c3-47a3-b6ba-11bb2c01ae32,2020-09-24T00:03:31Z,2020-09-24T00:07:45.905394+00:00,104.199.36.222,Boto3/1.14.11 Python/3.5.6 Linux/4.19.112+ Botocore/1.17.11 Resource,1
+Ocorrências: 1
+Severidade no cluster:
+  - UNKNOWN: 1
+Exemplos:
+  - Linha 283: AwsApiCall,ListObjects,3C661964FC814803,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'list-type': '2', 'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.amazonaws.com'}", 21-2020-09-24T00:03:31Z,1f44dd39-87c3-47a3-b6ba-11bb2c01ae32,2020-09-24T00:03:31Z,2020-09-24T00:07:45.905394+00:00,104.199.36.222,Boto3/1.14.11 Python/3.5.6 Linux/4.19.112+ Botocore/1.17.11 Resource,1
+--------------------------------------------------------------------------------
+[28] Cluster ID: 28
+Template: AwsApiCall,ListObjects,44F06AC4F084B0D0,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'list-type': '2', 'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.eu-west-1.amazonaws.com'}", 17-2020-08-27T22:04:19Z,9340067b-1fc8-4973-9372-6f189f4d87ae,2020-08-27T22:04:19Z,2020-08-27T22:08:52.180928+00:00,188.40.66.118,aws-sdk-go/1.34.2 (go1.10.4; linux; amd64),1
+Ocorrências: 1
+Severidade no cluster:
+  - UNKNOWN: 1
+Exemplos:
+  - Linha 287: AwsApiCall,ListObjects,44F06AC4F084B0D0,"{'type': 'AWSAccount', 'principalId': '', 'accountId': 'ANONYMOUS_PRINCIPAL'}","{'list-type': '2', 'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.eu-west-1.amazonaws.com'}", 17-2020-08-27T22:04:19Z,9340067b-1fc8-4973-9372-6f189f4d87ae,2020-08-27T22:04:19Z,2020-08-27T22:08:52.180928+00:00,188.40.66.118,aws-sdk-go/1.34.2 (go1.10.4; linux; amd64),1
+--------------------------------------------------------------------------------
+[29] Cluster ID: 29
+Template: AwsApiCall,ListObjects,90455AEEE2A35503,"{'type': 'AWSAccount', 'principalId': '725677763773', 'accountId': '725677763773'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.eu-west-1.amazonaws.com', 'encoding-type': 'url', 'prefix': '*'}", 14-2020-07-29T08:33:22Z,37fb4d82-98f1-4239-9698-b7d83d02a5bf,2020-07-29T08:33:22Z,2020-07-29T08:37:39.916609+00:00,134.122.57.211,Boto3/1.14.28 Python/3.6.9 Linux/4.15.0-66-generic Botocore/1.17.28,1
+Ocorrências: 1
+Severidade no cluster:
+  - UNKNOWN: 1
+Exemplos:
+  - Linha 290: AwsApiCall,ListObjects,90455AEEE2A35503,"{'type': 'AWSAccount', 'principalId': '725677763773', 'accountId': '725677763773'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.eu-west-1.amazonaws.com', 'encoding-type': 'url', 'prefix': '*'}", 14-2020-07-29T08:33:22Z,37fb4d82-98f1-4239-9698-b7d83d02a5bf,2020-07-29T08:33:22Z,2020-07-29T08:37:39.916609+00:00,134.122.57.211,Boto3/1.14.28 Python/3.6.9 Linux/4.15.0-66-generic Botocore/1.17.28,1
+--------------------------------------------------------------------------------
+[30] Cluster ID: 30
+Template: AwsApiCall,ListObjects,EXCH8ZCJFW2T7J3R,"{'type': 'AWSAccount', 'principalId': '725677763773', 'accountId': '725677763773'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.eu-west-1.amazonaws.com', 'encoding-type': 'url', 'prefix': '*'}", 13-2020-07-28T00:15:29Z,6ccd6e5a-a422-4e11-bc78-0f720c7855d1,2020-07-28T00:15:29Z,2020-07-28T00:20:20.072635+00:00,34.71.42.209,python-requests/2.22.0,1
+Ocorrências: 1
+Severidade no cluster:
+  - UNKNOWN: 1
+Exemplos:
+  - Linha 291: AwsApiCall,ListObjects,EXCH8ZCJFW2T7J3R,"{'type': 'AWSAccount', 'principalId': '725677763773', 'accountId': '725677763773'}","{'bucketName': 'microsoft-devtest', 'Host': 'microsoft-devtest.s3.eu-west-1.amazonaws.com', 'encoding-type': 'url', 'prefix': '*'}", 13-2020-07-28T00:15:29Z,6ccd6e5a-a422-4e11-bc78-0f720c7855d1,2020-07-28T00:15:29Z,2020-07-28T00:20:20.072635+00:00,34.71.42.209,python-requests/2.22.0,1
+--------------------------------------------------------------------------------
+[31] Cluster ID: 31
+Template: AwsApiCall,ListObjects,ARBH5K4X2HDKEZ4Y,"{'type': 'AWSAccount', 'principalId': '451083579297', 'accountId': '451083579297'}","{'list-type': '2', 'bucketName': 'microsoft-devtest', 'encoding-type': 'url', 'prefix': '', 'delimiter': '/', 'Host': 'microsoft-devtest.s3.eu-west-1.amazonaws.com'}", 8-2020-07-12T20:19:41Z,710b36d9-2c81-4292-be3a-dffb402e757b,2020-07-12T20:19:41Z,2020-07-12T20:20:08.364653+00:00,43.251.92.37,aws-cli/1.17.9 Python/3.6.0 Windows/10 botocore/1.14.9,1
+Ocorrências: 1
+Severidade no cluster:
+  - UNKNOWN: 1
+Exemplos:
+  - Linha 296: AwsApiCall,ListObjects,ARBH5K4X2HDKEZ4Y,"{'type': 'AWSAccount', 'principalId': '451083579297', 'accountId': '451083579297'}","{'list-type': '2', 'bucketName': 'microsoft-devtest', 'encoding-type': 'url', 'prefix': '', 'delimiter': '/', 'Host': 'microsoft-devtest.s3.eu-west-1.amazonaws.com'}", 8-2020-07-12T20:19:41Z,710b36d9-2c81-4292-be3a-dffb402e757b,2020-07-12T20:19:41Z,2020-07-12T20:20:08.364653+00:00,43.251.92.37,aws-cli/1.17.9 Python/3.6.0 Windows/10 botocore/1.14.9,1
+--------------------------------------------------------------------------------

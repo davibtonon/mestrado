@@ -54,7 +54,8 @@ class LLMFactory:
             base_url="http://localhost:8080/v1",
             model = settings.LLAMA_MODEL,
             api_key = settings.OPENAI_API_KEY,
-            temperature = settings.TEMPERATURE
+            temperature = settings.TEMPERATURE,
+            max_tokens = settings.NUM_TOKENS
         )
     
 

@@ -105,3 +105,6 @@ Gemini resultado:
 
 
  llama-cli.exe -m models\Foundation-Sec-8B.Q4_K_M.gguf -ngl 35 -cnv
+
+
+ https://github.com/OTRF/Security-Datasets/blob/master/datasets/atomic/windows/other/raccine_samples.zip
