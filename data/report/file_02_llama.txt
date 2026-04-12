@@ -1,0 +1,9 @@
+Mapped TTP:
+
+- ID: T1059
+- Name: Command and Scripting Interpreter
+- Explanation: The log shows the execution of the `dd` command (`exe="/bin/dd"`) with specific arguments (`a1="if=/dev/zero"`, `a2="bs=1"`, `a3="count=1"`). This indicates that a command-line interpreter is being used to execute a script or command, which aligns with the MITRE ATT&CK technique for using built-in system commands to perform actions.
+
+No other suspicious IPs or anomalies are identified based on the provided log excerpt. The activity appears to be legitimate, as the command `dd if=/dev/zero bs=1 count=1` is a common way to create a file of a specific size (in this case, a 1-byte file) using the `dd` command. The process is running as the user `wardog` (auid=1000, uid=1000, etc.), and there are no indications of privilege escalation or other malicious behavior.
+
+"No TTPs identified"

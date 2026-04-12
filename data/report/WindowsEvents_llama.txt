@@ -1,0 +1,29 @@
+tial security incidents. The analysis combines the following observations:
+
+- **Use of Alternate Authentication Material (T1550):** The detection of a secure conversation token in AD FS logs indicates an attempt to use alternate authentication methods, which could be a sign of unauthorized access.
+
+- **Valid Accounts (T1078):** The successful authentication of the "SIMULANDLABS\adfsadmin" account suggests the use of legitimate credentials, which could either be benign or indicative of a compromised account.
+
+- **Endpoint Denial of Service (T1499):** The log entry showing heavy resource contention by the Desktop Window Manager points to a potential Endpoint Denial of Service attack, aiming to make system resources unavailable.
+
+**Verdict:**
+- **Attack Yes:** The presence of MITRE techniques T1550 and T1499 in the logs indicates that the system has likely been targeted. The use of alternate authentication material and signs of an Endpoint Denial of Service attack suggest malicious intent. The use of a valid account (T1078) alone does not confirm an attack, but the combination of these activities raises the suspicion of an attack.
+
+**MITRE Techniques Identified:**
+- **T1550: Use of Alternate Authentication Material**
+- **T1078: Valid Accounts**
+- **T1499: Endpoint Denial of Service**
+
+**Recommendations:**
+- **Further Investigation:** Perform a detailed analysis of the AD FS logs and authentication logs to identify any unauthorized use of the secure conversation token and to trace the source of the heavy resource contention.
+- **Account Monitoring:** Intensify monitoring on the "SIMULANDLABS\adfsadmin" account for any unusual activities, such as logins from unusual locations or at unusual times.
+- **Resource Contention:** Investigate the cause of the heavy resource contention to determine if it's a result of a DoS attack or a legitimate spike in usage. Implement monitoring tools to detect and mitigate such activities.
+- **Security Hardening:** Implement additional security measures such as rate limiting, CAPTCHA, or other DoS protection mechanisms to mitigate the risk of future attacks.
+
+**Final Incident Report**
+
+**Incident Overview:**
+The incident analysis reveals a combination of suspicious activities that suggest potential security breaches. The identified MITRE techniques indicate a targeted attack on the system.
+
+**Verdict:**
+- **Attack Yes:** The presence of MITRE techniques T1550 and T1499 in the logs indicates that the system has likely been

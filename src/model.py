@@ -8,7 +8,7 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 from langchain_core.output_parsers import StrOutputParser
 from tools import LogLoader, save_file
-from config import DATA_DIR
+from config import DATA_DIR, settings
 
 
 ## Prompt usando para inicia o agent
@@ -32,35 +32,85 @@ def agent(path_file:str=""):
 
 def deploy_analysis(docs):
     llm_agent = LLMFactory().get_model()
+
     map_chain = MAP_PROMPT | llm_agent | StrOutputParser()
-   
-    # Executa o mapeamento para cada split do log
-    partial_results = map_chain.batch([{"context": d.page_content} for d in docs])
-    
-    # Junta os resultados e passa para o prompt final
-    combined_content = "\n\n".join(partial_results)
-    final_report = (REDUCE_PROMPT | llm_agent | StrOutputParser()).invoke({"summaries": combined_content})
-    
-    return final_report
+    reduce_chain = REDUCE_PROMPT | llm_agent | StrOutputParser()
+
+    # Segurança extra: limitar tamanho enviado no map
+    map_inputs = [
+        {"context": d}
+        for d in docs
+    ]
+
+    partial_results = map_chain.batch(
+        map_inputs,
+        config={"max_concurrency": 2}
+    )
+
+    # Remove vazios
+    partial_results = [r.strip() for r in partial_results if r and r.strip()]
+
+    # Reduce em árvore para não estourar contexto
+    step = 3
+
+    while len(partial_results) > 1:
+        reduced = []
+
+        for i in range(0, len(partial_results), step):
+            batch = "\n\n".join(partial_results[i:i + step])
+
+            result = reduce_chain.invoke({
+                "summaries": batch[:2500]  # trava de segurança
+            })
+
+            if result and result.strip():
+                reduced.append(result.strip())
+
+        partial_results = reduced
+
+    return partial_results[0] if partial_results else "Nenhum resultado gerado."
 
 
 
 if __name__ == "__main__":
     files = [
-        DATA_DIR / "file_02.log",
-        DATA_DIR / "file_03.csv",
-        DATA_DIR / "file_01.json",
-    ]
+                # DATA_DIR / "file_02.log",
+                # DATA_DIR / 'sh_arp_cache_2020-11-10074812.log',
+                # DATA_DIR / 'Microsoft365DefenderEvents.json',
+                # DATA_DIR / 'WindowsEvents.json',
+                DATA_DIR / "file_01.json",
+                DATA_DIR / "file_03.csv",
+
+    
+        ]
 
     for file in files:
-        json_data = LogLoader().get_doc(file)
-        splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100 )
-        split_docs = splitter.split_documents(json_data)
+        current_chunk = settings.CHUNK_SIZE
 
-        print(f"Total de chunks: {len(split_docs)}")
-        
-        relatorio = deploy_analysis(split_docs)
-        print(relatorio)
+        while True:
+            try:
+                settings.CHUNK_SIZE = current_chunk
 
-        save_file(relatorio, file)
-        
+                file_split = LogLoader().get_doc(file)
+                print(f"Arquivo: {file.name} | chunk_size: {current_chunk} | Total de chunks: {len(file_split)}")
+
+                relatorio = deploy_analysis(file_split[:10])
+                print(relatorio)
+
+                save_file(relatorio, file)
+                break
+
+            except Exception as e:
+                msg = str(e).lower()
+                print(f"Erro ao processar {file.name} com chunk_size={current_chunk}: {e}")
+
+                if "context size" in msg or "exceeds the available context size" in msg or "tokens" in msg:
+                    current_chunk = current_chunk // 2
+
+                    if current_chunk < 100:
+                        print(f"Chunk muito pequeno. Não foi possível processar {file.name}.")
+                        break
+
+                    print(f"Tentando novamente com chunk_size={current_chunk}")
+                else:
+                    break

@@ -3,6 +3,7 @@ from langchain_community.document_loaders import TextLoader, JSONLoader
 from langchain_core.documents import Document
 from config import settings, LLM_REPORT
 # from transformers import AutoTokenizer
+from langchain_text_splitters import CharacterTextSplitter,RecursiveJsonSplitter,RecursiveCharacterTextSplitter
 
 import pandas as pd
 import os
@@ -41,7 +42,7 @@ class LogLoader:
         if ext in ['.txt', '.log']:
             return LogLoader._load_text(path)
         elif ext == '.json':
-            return LogLoader._load_json_metadata(path)
+            return LogLoader._load_json(path)
         elif ext == '.csv':
             return LogLoader._load_csv(path)
         else:
@@ -49,37 +50,31 @@ class LogLoader:
 
 
     @staticmethod
-    def _load_text(path: str) -> List[Document]:
-        docs = []
+    def _load_text(path: str):
+
         with open(path, 'r', encoding='utf-8') as f:
-            for line in f:
-                line = line.strip()
-                if line:
-                    docs.append(Document(page_content=line))
-        
-        return docs
+            data = f.read()
+
+        text_splitter = CharacterTextSplitter.from_tiktoken_encoder(
+            encoding_name="cl100k_base", 
+            chunk_size=settings.CHUNK_SIZE, 
+            chunk_overlap=settings.CHUNK_OVERLAP
+            )
+            
+        return text_splitter.split_text(data)
 
 
     @staticmethod
-    def _load_json(path: str) -> list[Document]:
-        docs = []
+    def _load_json(path: str):
         
         with open(path, 'r', encoding='utf-8') as f:
-            
-            first_char = f.read(1)
-            f.seek(0)
-            if first_char == '[':
-                data = json.load(f)
-                for item in data:
-                    docs.append(Document(page_content=json.dumps(item)))
-            else:
-                for line in f:
-                    line = line.strip()
-                    if line:
-                        docs.append(Document(page_content=line))
+            data = json.load(f)
 
+        splitter = RecursiveJsonSplitter( 
+            max_chunk_size=settings.CHUNK_SIZE,
+           )
         
-        return docs
+        return  splitter.split_json(json_data=data,  convert_lists=True)
     
 
     @staticmethod
@@ -132,8 +127,13 @@ class LogLoader:
             reader = csv.DictReader(f)
             for row in reader:
                 docs.append(Document(page_content=json.dumps(row)))
+        
+        splitter = RecursiveCharacterTextSplitter(
+             chunk_size=settings.CHUNK_SIZE,
+             chunk_overlap=settings.CHUNK_OVERLAP,
+        )
 
-        return docs
+        return splitter.split_documents(docs)
 
 
 @tool
