@@ -1,0 +1,25 @@
+**Final Incident Report**
+
+**Incident Overview:**
+An incident was identified involving the AWS Management Console where an IAM user 'pedro' executed an API call to describe instance types. The source IP address '1.2.3.4' was used for this action. The userAgent 'console.ec2.amazonaws.com' suggests that the action was likely performed through the AWS console, possibly utilizing PowerShell or another scripting language for automation. The 'NextToken' parameter in the API call suggests potential scripting for pagination or automation.
+
+**Verdict:**
+Attack **Yes**
+
+**MITRE Techniques Identified:**
+
+1. **Command and Scripting Interpreter - PowerShell (T1059.001)**
+   - **Explanation:** The userAgent 'console.ec2.amazonaws.com' indicates interaction with the AWS Management Console, which is commonly used with scripting languages like PowerShell for automation tasks. The 'NextToken' parameter in the API call suggests potential scripting for pagination or automation, leading to the inference of PowerShell use.
+
+2. **Valid Accounts (T1078)**
+   - **Explanation:** The IAM user 'pedro' executed the action with MFA authentication (mfaAuthenticated: 'true'). This indicates that the user is a legitimate account with proper authentication measures in place, utilizing a valid account for the operation.
+
+3. **Brute Force (T1118)**
+   - **Explanation:** The source IP address '1.2.3.4' made a single successful request. While there is no evidence of failed attempts in the provided log, the potential for repeated failed attempts from the same IP address over a short period could indicate a brute force attack. However, based on the current log, we cannot confirm this TTP.
+
+**Conclusion:**
+The incident report indicates that while the user 'pedro' was authenticated with MFA and is a valid account, the use of the AWS Management Console and the potential for scripting to automate tasks suggests a risk of command and script execution (T1059.001). The IP address '1.2.3.4' warrants further monitoring for potential brute force attempts (T1118). The verdict is Attack **Yes** due to the identified use of scripting and valid account with potential for misuse. Continuous monitoring and enhanced logging are recommended to detect and prevent similar incidents in the future.
+
+**Final Incident Report**
+
+This structured final incident report combines the partial analyses into a comprehensive overview, highlighting the verdict and the MITRE techniques identified. The report

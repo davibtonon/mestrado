@@ -1,6 +1,5 @@
 # from langchain_community.document_loaders import JSONLoader
 # from langchain_text_splitters import RecursiveCharacterTextSplitter
-# from config import DATA_DIR
 # import json
 # from tools import LogLoader
 
@@ -88,21 +87,54 @@
 # # # text_splitter = RecursiveCharacterTextSplitter(chunk_size=4000, chunk_overlap=400)
 # # # split_docs = text_splitter.split_documents(docs)
 
-import json
-from langchain_text_splitters import RecursiveJsonSplitter
+# # import json
+# # from langchain_text_splitters import RecursiveJsonSplitter
 
-# with open("data\\raw\\psh_powershell_httplistener_2020-11-0204130683.json", "r", encoding="utf-8") as f:
-#     data = json.load(f)
+# # with open("data\\raw\\psh_powershell_httplistener_2020-11-0204130683.json", "r", encoding="utf-8") as f:
+# #     data = json.load(f)
 
-with open("data\\raw\\file_01.json", "r", encoding="utf-8") as f:
-    data = json.load(f)
+# # with open("data\\raw\\file_01.json", "r", encoding="utf-8") as f:
+# #     data = json.load(f)
 
 
-splitter = RecursiveJsonSplitter(max_chunk_size=1000,     )
+# # splitter = RecursiveJsonSplitter(max_chunk_size=1000,     )
 
-json_chunks = splitter.split_json(json_data=data, convert_lists=True)
+# # json_chunks = splitter.split_json(json_data=data, convert_lists=True)
 
-for i, chunk in enumerate(json_chunks[:], start=1):
-    print(f"Chunk {i}:")
-    print(chunk)
-    print("-" * 80)
+# # for i, chunk in enumerate(json_chunks[:], start=1):
+# #     print(f"Chunk {i}:")
+# #     print(chunk)
+# #     print("-" * 80)
+from langchain_text_splitters import CharacterTextSplitter
+from tools import LogLoader
+from config import DATA_DIR
+
+# with open(DATA_DIR / 'sh_arp_cache_2020-11-10074812.log', "r", encoding="utf-8") as f:
+#     state_of_the_union = f.read()
+
+# text_splitter = CharacterTextSplitter.from_tiktoken_encoder(
+#     encoding_name="cl100k_base", chunk_size=1000, chunk_overlap=0
+# )
+# texts = text_splitter.split_text(state_of_the_union)
+files = [
+            DATA_DIR / "file_02.log",
+            DATA_DIR / 'sh_arp_cache_2020-11-10074812.log',
+            DATA_DIR / 'Microsoft365DefenderEvents.json',
+            DATA_DIR / 'WindowsEvents.json',
+            DATA_DIR / "file_01.json",
+            DATA_DIR / "file_03.csv",
+
+   
+    ]
+
+
+for file in files:
+    test = LogLoader.get_doc(file)
+    print(f"{file}: {len(test)}")
+
+
+# test = LogLoader.get_doc(DATA_DIR / 'sh_arp_cache_2020-11-10074812.log')
+# print(len(test))
+
+# json_data = LogLoader().get_doc(DATA_DIR / "Microsoft365DefenderEvents.json")
+# print(len(json_data))

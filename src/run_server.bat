@@ -4,7 +4,8 @@ REM Caminho do executável do llama.cpp
 set LLAMA_EXE=D:\davi_tonon\llama.cpp\build\bin\Release\llama-server.exe
 
 REM Caminho do modelo
-set MODEL_PATH="D:\davi_tonon\mestrado\models\foundation-sec-8b-reasoning-q4_k_m.gguf"
+@REM set MODEL_PATH="D:\davi_tonon\mestrado\models\foundation-sec-8b-reasoning-q4_k_m.gguf"
+set MODEL_PATH="D:\davi_tonon\mestrado\models\foundation-sec-1.1-8b-instruct-q4_k_m.gguf"
 
 REM Configurações de hardware
 set NGL=35

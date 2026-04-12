@@ -1,0 +1,21 @@
+Mapped TTP:
+
+- ID: T1059
+- Name: Command and Scripting Interpreter
+- Explanation: The logs show the execution of commands through the `arp` and `grep` utilities, which are command-line tools. The `EXECVE` messages indicate that these commands are being run directly from the command line, which aligns with the use of a command and scripting interpreter.
+
+- ID: T1059.001
+- Name: PowerShell
+- Explanation: Although the logs do not explicitly mention PowerShell, the use of command-line utilities like `arp` and `grep` can be considered as using a command and scripting interpreter (T1059), specifically shell commands (T1059.001), as they are executed through the shell.
+
+- ID: T1036
+- Name: Masquerading
+- Explanation: The `PROCTITLE` entries show the command-line arguments without obfuscation. However, the command `grep -v "^?"` is suspicious because it uses a wildcard `^?` which could potentially match any line that starts with a question mark, possibly indicating an attempt to hide or filter specific log entries.
+
+- ID: T1564.003
+- Name: Hide Artifacts
+- Explanation: The `grep` command with the `-v` flag and the pattern `^?` could be used to filter out lines that start with a question mark, which might be an attempt to hide specific log entries or artifacts. This could be a technique used to hide malicious activity from detection.
+
+No other TTPs are identified based on the provided log data. The logs do not indicate any other suspicious activity or anomalies beyond the use of standard system utilities and the potentially suspicious `grep` command.
+
+"No TTPs identified"
