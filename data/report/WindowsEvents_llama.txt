@@ -12,7 +12,7 @@ tial security incidents. The analysis combines the following observations:
 **MITRE Techniques Identified:**
 - **T1550: Use of Alternate Authentication Material**
 - **T1078: Valid Accounts**
-- **T1499: Endpoint Denial of Service**
+- **    : Endpoint Denial of Service**
 
 **Recommendations:**
 - **Further Investigation:** Perform a detailed analysis of the AD FS logs and authentication logs to identify any unauthorized use of the secure conversation token and to trace the source of the heavy resource contention.

@@ -16,5 +16,6 @@ dependencies = [
     'jq',
     'transformers',
     'langchain-openai',
-    'hf'
+    'hf',
+    ' llama-cpp-python'
 ]

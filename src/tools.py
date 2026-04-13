@@ -1,6 +1,7 @@
 from langchain.tools import tool 
 from langchain_community.document_loaders import TextLoader, JSONLoader
 from langchain_core.documents import Document
+from sqlalchemy import text
 from config import settings, LLM_REPORT
 # from transformers import AutoTokenizer
 from langchain_text_splitters import CharacterTextSplitter,RecursiveJsonSplitter,RecursiveCharacterTextSplitter
@@ -12,6 +13,10 @@ import csv
 from typing import List
 
 from pathlib import Path
+import requests
+from config import DATA_DIR
+from llama_cpp import Llama
+
 
 LOG_CACHE = None
 CSV_PATH = None
@@ -197,17 +202,44 @@ def save_file(msg, path_file):
     print(f"Saved to: {full_path}")
 
 
+
+def count_tokens(file_path):
+    """Extrai texto de diferentes tipos de arquivos."""
+
+    SERVER_URL = "http://localhost:8080/tokenize"
+    
+    llm = Llama(
+    model_path="..\\models\\foundation-sec-1.1-8b-instruct-q4_k_m.gguf",
+    n_ctx=65536,
+    verbose=False
+    )
+
+    files_chuncks = LogLoader.get_doc(file_path)
+    n_tokesns = 0
+    print(f"Processndo: {file_path.name}")
+    print(f"Total de chunks: {len(files_chuncks)}")
+    texts = []
+
+    for chunk in files_chuncks:
+        if isinstance(chunk, (dict, list)):
+            texts.append(json.dumps(chunk, ensure_ascii=False))
+        else:
+            texts.append(str(chunk))
+    texts = "\n\n".join(texts)
+    tokens = llm.tokenize(texts.encode("utf-8"))
+
+    print(f"Número de tokens: {len(tokens)}")
+
+
 if __name__ == '__main__':
-    from config import DATA_DIR
-
-    # Caminho do arquivo de log
-    file_path = DATA_DIR / "file_linux.log"
-    file_01 = DATA_DIR / "file_03.csv"
-    path_file = file_01
-
-    docs = LogLoader.get_doc(path_file)
-
-
-    print(f"Total de documentos carregados: {len(docs)}")
-    for i, doc in enumerate(docs[:5]):
-        print(f"Documento {i+1}:", doc.page_content)
+    files = [
+                DATA_DIR / "file_02.log",
+                DATA_DIR / 'sh_arp_cache_2020-11-10074812.log',
+                DATA_DIR / 'Microsoft365DefenderEvents.json',
+                DATA_DIR / 'WindowsEvents.json',
+                DATA_DIR / "file_01.json",
+                DATA_DIR / "file_03.csv",
+        ]
+    
+    for file in files:
+        count_tokens(file)
