@@ -10,9 +10,10 @@ notebooks/.Trash-0/
 /notebooks/compound/*
 /llama.cp/*dll
 /llama.cp/*exe
-/models/*.gguf
-/llama.cp
-
+/models/*
+/models/!*.py
+llama.cp
+/
 # C extensions
 *.so
 

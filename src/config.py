@@ -14,7 +14,7 @@ load_dotenv()
 class Settings(BaseSettings):
     """Class to hold all configuration settings for the application."""
 
-    LLM_PROVIDER: Literal['openai', 'ollama', 'gemini', 'llama'] = Field(default='llama')
+    LLM_PROVIDER: Literal['openai', 'ollama', 'gemini', 'llama'] = Field(default='ollama')
 
     # 2. Chaves de API (o Pydantic valida se é string)
     OPENAI_API_KEY: str = Field(default="sk-placeholder")

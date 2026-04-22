@@ -41,6 +41,7 @@ class LLMFactory:
             base_url = settings.OLLAMA_URL,
             temperature = settings.TEMPERATURE,
             num_ctx = settings.NUM_TOKENS,
+            num_predict= 1000
 
            # reasoning = True
         )
@@ -55,7 +56,8 @@ class LLMFactory:
             model = settings.LLAMA_MODEL,
             api_key = settings.OPENAI_API_KEY,
             temperature = settings.TEMPERATURE,
-            max_tokens = settings.NUM_TOKENS
+            max_tokens = settings.NUM_TOKENS,
+
         )
     
 

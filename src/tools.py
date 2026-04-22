@@ -15,7 +15,7 @@ from typing import List
 from pathlib import Path
 import requests
 from config import DATA_DIR
-from llama_cpp import Llama
+#from llama_cpp import Llama
 
 
 LOG_CACHE = None

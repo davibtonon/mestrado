@@ -105,9 +105,9 @@
 # #     print(f"Chunk {i}:")
 # #     print(chunk)
 # #     print("-" * 80)
-from langchain_text_splitters import CharacterTextSplitter
-from tools import LogLoader
-from config import DATA_DIR
+# from langchain_text_splitters import CharacterTextSplitter
+# 
+# from config import DATA_DIR
 
 # with open(DATA_DIR / 'sh_arp_cache_2020-11-10074812.log', "r", encoding="utf-8") as f:
 #     state_of_the_union = f.read()
@@ -116,21 +116,21 @@ from config import DATA_DIR
 #     encoding_name="cl100k_base", chunk_size=1000, chunk_overlap=0
 # )
 # texts = text_splitter.split_text(state_of_the_union)
-files = [
-            DATA_DIR / "file_02.log",
-            DATA_DIR / 'sh_arp_cache_2020-11-10074812.log',
-            DATA_DIR / 'Microsoft365DefenderEvents.json',
-            DATA_DIR / 'WindowsEvents.json',
-            DATA_DIR / "file_01.json",
-            DATA_DIR / "file_03.csv",
+# files = [
+#             DATA_DIR / "file_02.log",
+#             DATA_DIR / 'sh_arp_cache_2020-11-10074812.log',
+#             DATA_DIR / 'Microsoft365DefenderEvents.json',
+#             DATA_DIR / 'WindowsEvents.json',
+#             DATA_DIR / "file_01.json",
+#             DATA_DIR / "file_03.csv",
 
    
-    ]
+#     ]
 
 
-for file in files:
-    test = LogLoader.get_doc(file)
-    print(f"{file}: {len(test)}")
+# for file in files:
+#     test = LogLoader.get_doc(file)
+#     print(f"{file}: {len(test)}")
 
 
 # test = LogLoader.get_doc(DATA_DIR / 'sh_arp_cache_2020-11-10074812.log')
@@ -138,3 +138,96 @@ for file in files:
 
 # json_data = LogLoader().get_doc(DATA_DIR / "Microsoft365DefenderEvents.json")
 # print(len(json_data))
+
+from config import DATA_DIR, settings
+from model import agent
+from prompt import SYSTEM_PROMPT
+from tools import LogLoader, save_file
+from langchain_core.runnables import RunnableConfig
+
+# llm_agent = agent()
+
+
+# result = llm_agent.invoke(
+#     {"messages": [{"role": "user", "content": "Hi! My name is Bob. Who are you ?"}]},
+#     {"configurable": {"thread_id": "1"}},  )
+
+
+# final_message = result["messages"][-1].content
+# print("\n=== Agent Response 1 ===")
+# print(final_message)
+
+# result2 = llm_agent.invoke(
+#     {"messages": [{"role": "user", "content": "Do you remember my name"}]},
+#     {"configurable": {"thread_id": "1"}},  )
+
+# final_message2 = result2["messages"][-1].content
+# print("\n=== Agent Response 2 ===")
+# print(final_message2)
+
+
+if __name__ == "__main__":
+    files = [
+                # DATA_DIR / "file_02.log",
+                # DATA_DIR / 'sh_arp_cache_2020-11-10074812.log',
+                # DATA_DIR / 'Microsoft365DefenderEvents.json',
+                # DATA_DIR / 'WindowsEvents.json',
+                DATA_DIR / "file_01.json",
+                # DATA_DIR / "file_03.csv",
+
+    
+        ]
+    llm_agent = agent()
+   
+    config: RunnableConfig = {"configurable": {"thread_id": "1"}}
+
+    result = llm_agent.invoke(
+        {"messages": [{"role": "user", "content": SYSTEM_PROMPT }]},
+        config  )
+    
+    print("\n=== Agent Response 1 ===")
+    final_message = result["messages"][-1].content
+    print(final_message)
+
+    result2 = None
+
+
+    for file in files:
+        current_chunk = settings.CHUNK_SIZE
+
+
+        settings.CHUNK_SIZE = current_chunk
+
+        file_split = LogLoader().get_doc(file)
+        chunk_results = []
+        print(f"Arquivo: {file.name} | chunk_size: {current_chunk} | Total de chunks: {len(file_split)}")
+        for i, chunk in enumerate(file_split[:10]):
+            print(f"Chunk: {i+1}/{len(file_split)}")
+            #print(chunk)
+            res = llm_agent.invoke(
+                {"messages": [{"role": "user", "content": f"Analyze this log chunk:\n{chunk}" }]},
+                config,  )
+            chunk_results.append(res["messages"][-1].content)
+            print(result2['messages'][-1].content)
+    
+        final_result = llm_agent.invoke(
+            {
+                "messages": [
+                    {
+                        "role": "user",
+                        "content": "Here the partial analyses".join(chunk_results) +
+                        "\n\nProvide a final consolidated analysis of all logs."
+                    }
+                    ]
+            },
+            config
+            )
+        final_message = final_result["messages"][-1].content
+        print(final_message)
+
+
+        
+        save_file(final_message, file)
+        save_file(str(chunk_results), 'teste.txt')
+    
+

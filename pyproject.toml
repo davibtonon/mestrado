@@ -17,5 +17,5 @@ dependencies = [
     'transformers',
     'langchain-openai',
     'hf',
-    ' llama-cpp-python'
+    #'llama-cpp-python'
 ]
