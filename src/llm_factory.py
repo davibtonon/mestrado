@@ -41,9 +41,10 @@ class LLMFactory:
             base_url = settings.OLLAMA_URL,
             temperature = settings.TEMPERATURE,
             num_ctx = settings.NUM_TOKENS,
-            num_predict= 1000
+            num_predict= 500,
+            # seed=42,
 
-           # reasoning = True
+            reasoning = True
         )
     
     def _build_gemini(self) -> BaseLanguageModel:

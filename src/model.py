@@ -10,6 +10,7 @@ from langchain_core.output_parsers import StrOutputParser
 from tools import LogLoader, save_file
 from config import DATA_DIR, settings
 from langgraph.checkpoint.memory import InMemorySaver  
+from langchain.agents.middleware import SummarizationMiddleware
 
 
 ## Prompt usando para inicia o agent
@@ -23,19 +24,28 @@ def built_prompt(path_file):
 def agent(path_file:str=""):
     system_prompt= built_prompt(path_file)
     memory = InMemorySaver()
+    model = LLMFactory().get_model()
     return create_agent(
-        model= LLMFactory().get_model(), 
+        model=model , 
         system_prompt=system_prompt,
         #tools=[load_log_file],
         debug=False,
         #stream=False,
-        checkpointer=memory
+        checkpointer=memory,
+        middleware=[
+        SummarizationMiddleware(
+            model=model,
+            trigger={"tokens": 8196},
+            keep={"messages": 20},
+        ),
+    ],
+     
     )
 
 
 def deploy_analysis(docs):
     llm_agent = LLMFactory().get_model()
-    llm_agent = agent()
+    # llm_agent = agent()
     map_chain = MAP_PROMPT | llm_agent | StrOutputParser()
     reduce_chain = REDUCE_PROMPT | llm_agent | StrOutputParser()
 

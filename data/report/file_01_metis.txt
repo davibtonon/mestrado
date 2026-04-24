@@ -1,0 +1,14 @@
+- **Security Practices:** The use of MFA is a positive security measure that mitigates risks associated with credential theft.
+    - **Data Exposure Risk:** Without specific filters applied to the API calls, there's a risk of exposing sensitive information. It's recommended to review and refine access permissions and ensure only necessary data is accessed.
+
+**Recommendations:**
+- **Review Access Permissions:** Ensure `pedro` has appropriate and minimal required permissions for EBS volume management.
+- **Implement Logging and Monitoring:** Enhance logging and monitoring to detect unusual patterns or anomalies in API call behavior.
+- **Security Awareness Training:** Provide training to users on best practices for secure access, including the importance of using MFA and minimizing data exposure.
+
+**Conclusion:**
+The actions taken by `pedro` appear to be legitimate based on the provided information. However, it's crucial to maintain vigilance over user activities and ensure adherence to security best practices to protect sensitive resources.
+
+---
+
+This report provides a structured analysis and recommendations for addressing potential risks identified from the log data.

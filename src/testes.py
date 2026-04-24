@@ -144,6 +144,7 @@ from model import agent
 from prompt import SYSTEM_PROMPT
 from tools import LogLoader, save_file
 from langchain_core.runnables import RunnableConfig
+from langchain_core.utils.uuid import uuid7
 
 # llm_agent = agent()
 
@@ -178,8 +179,8 @@ if __name__ == "__main__":
     
         ]
     llm_agent = agent()
-   
-    config: RunnableConfig = {"configurable": {"thread_id": "1"}}
+    thread_id = str(uuid7())
+    config: RunnableConfig = {"configurable": {"thread_id": thread_id}}
 
     result = llm_agent.invoke(
         {"messages": [{"role": "user", "content": SYSTEM_PROMPT }]},
@@ -201,33 +202,39 @@ if __name__ == "__main__":
         file_split = LogLoader().get_doc(file)
         chunk_results = []
         print(f"Arquivo: {file.name} | chunk_size: {current_chunk} | Total de chunks: {len(file_split)}")
-        for i, chunk in enumerate(file_split[:10]):
+        for i, chunk in enumerate(file_split):
             print(f"Chunk: {i+1}/{len(file_split)}")
             #print(chunk)
-            res = llm_agent.invoke(
+            llm_agent.invoke(
                 {"messages": [{"role": "user", "content": f"Analyze this log chunk:\n{chunk}" }]},
                 config,  )
-            chunk_results.append(res["messages"][-1].content)
-            print(result2['messages'][-1].content)
+            # chunk_results.append(result2["messages"][-1].content)
+            # print(result2['messages'][-1].content)
     
-        final_result = llm_agent.invoke(
-            {
-                "messages": [
-                    {
-                        "role": "user",
-                        "content": "Here the partial analyses".join(chunk_results) +
-                        "\n\nProvide a final consolidated analysis of all logs."
-                    }
-                    ]
-            },
-            config
-            )
-        final_message = final_result["messages"][-1].content
-        print(final_message)
+        # final_result = llm_agent.invoke(
+        #     {
+        #         "messages": [
+        #             {
+        #                 "role": "user",
+        #                 "content": "Here the partial analyses".join(chunk_results) +
+        #                 "\n\nProvide a final consolidated analysis of all logs."
+        #             }
+        #             ]
+        #     },
+        #     config
+        #     )
+
+
+        final_message = llm_agent.invoke({"messages":"Provide a final consolidated analysis of all logs"}, config)
+        for m in final_message["messages"]:
+            print(30*"=")
+            print(m.content)
 
 
         
-        save_file(final_message, file)
-        save_file(str(chunk_results), 'teste.txt')
+        save_file(str(final_message['messages']), file)
+        # save_file(str(chunk_results), 'teste.txt')
+        # for i in llm_agent.get_state_history(config):
+        #     print(i)
     
 
